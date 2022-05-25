@@ -1,4 +1,4 @@
-until git pull https://github.com/ZacharyEbaugh/COP4331
+until git pull
 do
     echo error
 done
