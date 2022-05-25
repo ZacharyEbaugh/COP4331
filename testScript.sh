@@ -1,4 +1,2 @@
-until git pull
-do
-    echo error
-done
+git pull
+echo PULLING
