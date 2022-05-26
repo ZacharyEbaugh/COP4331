@@ -1,0 +1,13 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+}
+
+body h1 {
+    font-size: 3vw;
+}
+
+body h2 {
+    font-size: 2vw;
+}
