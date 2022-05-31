@@ -5,7 +5,7 @@
 
 	$inData = getRequestInfo();
 	
-	$id = $_SESSION['id'];
+	$id = $_POST['id'];
 	$firstName = $inData["first_name"];
 	$lastName = $inData["last_name"];
 	$username = $inData["username"];
@@ -17,4 +17,9 @@
 	$con->query($sql);
 
 	$con->close();
+
+	function getRequestInfo()
+	{
+		return json_decode(file_get_contents('php://input'), true);
+	}
 ?>
