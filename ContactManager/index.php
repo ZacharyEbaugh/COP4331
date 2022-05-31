@@ -3,44 +3,47 @@
 require('DB_connections.php');
 session_start();
 
-$userQuery = "SELECT * FROM `user_info` WHERE `username` = 'zacEbaugh'";
-$userResult = mysqli_query($con, $userQuery);
-$user = mysqli_fetch_assoc($userResult);
-$userName = $user['username'];
-$id = $user['id'];
+function searchUser(&$searchUserName)
+{
+    $userQuery = "SELECT * FROM `user_info` WHERE `username` = $searchUserName";
+    $userResult = mysqli_query($con, $userQuery);
+    $user = mysqli_fetch_assoc($userResult);
+    $userName = $user['username'];
+    $id = $user['id'];
 
-$query = "SELECT * FROM `contact_list` WHERE `user_id` = $id";
-$result = mysqli_query($con, $query);
-$num_rows = mysqli_num_rows($result);
+    $query = "SELECT * FROM `contact_list` WHERE `user_id` = $id";
+    $result = mysqli_query($con, $query);
+    $num_rows = mysqli_num_rows($result);
 
-$contact_names = array();
-$contact_first_names = array();
-$contact_last_names = array();
-$contact_emails = array();
-$contact_addresses = array();
+    $contact_names = array();
+    $contact_first_names = array();
+    $contact_last_names = array();
+    $contact_emails = array();
+    $contact_addresses = array();
 
 
-$num_rows = mysqli_num_rows($result);
+    $num_rows = mysqli_num_rows($result);
 
-for ($x = 0; $x < $num_rows; $x++) {
-    $result_fetch = mysqli_fetch_assoc($result);
-    $contact_ID = $result_fetch['contact_id'];
+    for ($x = 0; $x < $num_rows; $x++) {
+        $result_fetch = mysqli_fetch_assoc($result);
+        $contact_ID = $result_fetch['contact_id'];
 
-    $contactQuery = "SELECT * FROM `user_info` WHERE `id` = $contact_ID";
-    $contactResult = mysqli_query($con, $contactQuery);
-    $contacts = mysqli_fetch_assoc($contactResult);
+        $contactQuery = "SELECT * FROM `user_info` WHERE `id` = $contact_ID";
+        $contactResult = mysqli_query($con, $contactQuery);
+        $contacts = mysqli_fetch_assoc($contactResult);
 
-    $contactUserName = $contacts['username'];
-    $contactFirstName = $contacts['first_name'];
-    $contactLastName = $contacts['last_name'];
-    $contactEmail = $contacts['email'];
-    $contactAddress = $contacts['address'];
+        $contactUserName = $contacts['username'];
+        $contactFirstName = $contacts['first_name'];
+        $contactLastName = $contacts['last_name'];
+        $contactEmail = $contacts['email'];
+        $contactAddress = $contacts['address'];
 
-    array_push($contact_names, $contactUserName);
-    array_push($contact_first_names, $contactFirstName);
-    array_push($contact_last_names, $contactLastName);
-    array_push($contact_emails, $contactEmail);
-    array_push($contact_addresses, $contactAddress);
+        array_push($contact_names, $contactUserName);
+        array_push($contact_first_names, $contactFirstName);
+        array_push($contact_last_names, $contactLastName);
+        array_push($contact_emails, $contactEmail);
+        array_push($contact_addresses, $contactAddress);
+    }
 
 }
 ?>
@@ -58,20 +61,50 @@ for ($x = 0; $x < $num_rows; $x++) {
 
 <body>
     <h1>User: <?php echo $userName ?></h1>
+    <?php
+        for ($i = 0; $i < 3; $i++)
+        {
+            echo $contactArray[$i];
+        }
+    ?>
     <h2>Contacts:<br></h2>
     <div class="searchBar">
-        <input type="text" name="search">
-        <input type="submit" value="Search">
+        <input type="text" class="form-control" id="live-search" autocomplete="off" placeholder="Search...">
+
     </div>
-    <h3><?php
-        for ($i = 0; $i < $num_rows; $i++) {
-            echo $contact_names[$i] . ": " . 
-            $contact_first_names[$i] . ": " . 
-            $contact_last_names[$i] . ": " . 
-            $contact_emails[$i] . ": " . 
-            $contact_addresses[$i] . "<br>";
-        }
-        ?></h3>
+    <div class="displayResult">
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#live-search").keyup(function(){
+                var input = $(this).val();
+                // alert(input);
+                // while (1) 
+                // {
+                    if(input !=""){
+                        $.ajax({
+                            url: "live-search.php",
+                            method: "POST",
+                            data:{input:input},
+
+                            success:function(data){
+                                $(".displayResult").html(data);
+                            }
+                        });
+                    }
+                    // else {
+                    //     $(".displayResult").css("display", "none");
+                    // }
+                // }
+            })
+        })
+    </script>
+
+
 </body>
 
 </html>
