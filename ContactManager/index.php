@@ -59,6 +59,10 @@ for ($x = 0; $x < $num_rows; $x++) {
 <body>
     <h1>User: <?php echo $userName ?></h1>
     <h2>Contacts:<br></h2>
+    <div class="searchBar">
+        <input type="text" name="search">
+        <input type="submit" value="Search">
+    </div>
     <h3><?php
         for ($i = 0; $i < $num_rows; $i++) {
             echo $contact_names[$i] . ": " . 
