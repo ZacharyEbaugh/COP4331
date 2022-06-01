@@ -2,17 +2,11 @@
 
 include("DB_connections.php");
 
-for ($i = 0; $i < 1; $i++)
-{
-    echo $contacts[$i];
-}
-
-
 if (isset($_POST['input'])) {
     $input = $_POST['input'];
-    // echo $input;
-    $query = "SELECT * FROM `user_info` WHERE `username` LIKE '{$input}%' LIMIT 10";
-    // $query = "SELECT * FROM `user_info`";
+    echo $input;
+    $query = "SELECT * FROM `contact_list` WHERE `username` LIKE '{$input}%' AND `user_id` = '1' LIMIT 10";
+    // $query = "SELECT * FROM `contact_list` WHERE `user_id` = '1' LIMIT 10";
 
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {?>

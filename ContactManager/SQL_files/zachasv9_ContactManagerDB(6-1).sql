@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2022 at 11:18 PM
+-- Generation Time: May 25, 2022 at 12:36 PM
 -- Server version: 5.6.41-84.1
--- PHP Version: 7.4.29
+-- PHP Version: 7.3.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,24 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `contact_list` (
-  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `username` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `first_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `phone_num` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(64) COLLATE utf8_unicode_ci NOT NULL
+  `contact_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `contact_list`
---
-
-INSERT INTO `contact_list` (`id`, `user_id`, `username`, `first_name`, `last_name`, `phone_num`, `email`, `address`) VALUES
-(1, 1, 'brandon', 'brandon', 'spangler', '123-123-1234', 'b@gmail.com', '123 University dr.'),
-(2, 1, 'alfred', 'alfred', 'Yu', '234-234-2345', 'a@gmail.com', '234 University Dr.'),
-(3, 1, 'Ethan', 'Ethan', 'Brooks', '345-345-3456', 'e@gmail.com', '345 University Dr.');
 
 -- --------------------------------------------------------
 
@@ -60,7 +45,6 @@ CREATE TABLE `user_info` (
   `password` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `first_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `phone_num` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -69,13 +53,9 @@ CREATE TABLE `user_info` (
 -- Dumping data for table `user_info`
 --
 
-INSERT INTO `user_info` (`id`, `username`, `password`, `first_name`, `last_name`, `phone_num`, `email`, `address`) VALUES
-(1, 'zacEbaugh', '123', 'zac', 'ebaugh', '', 'zlebaughwps@gmail.com', '321'),
-(2, 'brandonSpangler', '123', 'Brandon', 'Spangler', '', 'brandonSpangler@gmail.com', '123'),
-(7, 'AlfredYu', '123', 'Alfred', 'Yu', '', 'AlfredYu@gmail.com', '123'),
-(8, 'EthanBrooks', '123', 'Ethan', 'Brooks', '', 'EthanBrooks@gmail.com', '123'),
-(9, 'zacharyEbaugh', '123', 'zachary', 'ebaugh', '', 'zachary.ebaugh@gmail.com', '123'),
-(10, 'zachEbaugh', '123', 'zach', 'ebaugh', '', 'zaebaugh@gmail.com', '123');
+INSERT INTO `user_info` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `address`) VALUES
+(1, 'zacEbaugh', '', 'zac', 'ebaugh', 'zlebaughwps@gmail.com', '321'),
+(6, 'a', 'a', 'a', 'a', 'a', 'a');
 
 --
 -- Indexes for dumped tables
@@ -85,7 +65,7 @@ INSERT INTO `user_info` (`id`, `username`, `password`, `first_name`, `last_name`
 -- Indexes for table `contact_list`
 --
 ALTER TABLE `contact_list`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `user_info`
@@ -98,16 +78,10 @@ ALTER TABLE `user_info`
 --
 
 --
--- AUTO_INCREMENT for table `contact_list`
---
-ALTER TABLE `contact_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
