@@ -19,7 +19,7 @@
 	if ($con->query($sql) === TRUE) {
 		echo "New record created successfully";
 	} 
-	(else {
+	else {
 		echo "Error: " . $sql . "<br>" . $con->error;
 	}
 ?>
