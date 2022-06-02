@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+body{
+    background-attachment: fixed;
+    overflow: auto;
+    background-color: #edede3;
+    
+    
+}
+/*makes images round */
+img {
+  border-radius: 50%;
+  background: #d16b23;
+  border:2px solid white;
+  
+
+}
+.header{
+    
+}
+.footer{
+    
+}
+/* Create three equal columns that floats next to each other */
+.column1 {
+  background-color: transparent;
+  float: left;
+  width: 20%;
+  padding: 10px;
+  
+   /* Should be removed. Only for demonstration */
+}
+.column2 {
+  float: left;
+  overflow: auto;
+  width: 60%;
+  padding: 10px; /* Should be removed. Only for demonstration */
+  overflow: auto;
+  background-color: transparent;
+  ;
+}
+.column3 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+   /* Should be removed. Only for demonstration */
+}
+
+.container{
+	width: 100%;
+	overflow: auto;
+	
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.centered {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*table to hold the contacts */
+#contacts {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+#contacts td{
+  border: 1px solid #ddd;
+  padding: 8px;
+  background-color: white;
+  width: 100px;
+}
+
+#customers th {
+  border: 1px solid #ddd;
+  background-color: white;
+  width: 100px;
+  
+}
+#contacts tr {
+    border-radius: 100px;
+}
+
+#contacts tr:hover {background-color: #ddd;
+}
+
+#contacts th {
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+/*end table to hold contacts*/
+/*table for nav*/
+/*end table for nav*/
+
+/*pop-up for more*/
+
+/*end pop-ip for more*/
+
+/*toggle edit*/
+
+/*end toggle edit*/
+
+/*table cell for add*/
+#add {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#add td, #add th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  background-color: white;
+}
+
+#add tr:hover {background-color: #ddd;}
+
+#add th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+/*end table cell for add*/
+
+* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* delete button*/
+/* Popup container - can be anything you want */
+.popup {
+  width:100%;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+/*end delete*/
+
+/*search for table */
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+/*end search for table*/
+</style>
+</head>
+<body>
+
+<!-- inser logo -->
+<h2>Logo</h2> 
+<!-- table -->
+
+<div class="container">
+
+<div class="row">
+
+<!-- nav -->
+  <div class="column1"></div>
+<!-- end nav -->
+  
+  
+<!-- table -->
+<div class="column2">
+    
+<h1>Contact List</h1>
+<!-- add to table -->
+<center>
+
+<table id= "add">
+  <tr>
+
+  </tr>
+    <tr id = "thisRow">
+  <!-- avatar -->
+    <td style="width:100px"><center>
+    <div class = "avatars">
+    <img src="https://64.media.tumblr.com/e6c2c7f0c88b6c35f394134d231ae852/88f42c71fa566fc3-06/s2048x3072/9daa29e7dcbf03d6e68534264f68037fdc2a74ea.pnj" style="width: 100px">
+    </div></center></td>
+    <!-- eend avatar -->
+    
+    <form action="/action_page.php">
+    <!-- name -->
+    <td = "newName" style = "100px"><center><div contenteditable ><input id="nameAdd" placeholder="Name" width = " 100%" type="text" maxlength = "50" title="Text length out of range"> </input> </div></center></td>
+    <!-- end name -->
+    
+    <!-- phone -->
+    <td = "newPhone"><center><div contenteditable style><input id="numAdd" type = "tel" placeholder="321 123 4567"  pattern="[A-Za-z]{10}" title="Please submit a valid phone number."> </input></div></center></td>
+    <!-- end phone -->
+    
+    <!-- e-mail -->
+    <td = "newMail"> <center><div contenteditable><input type = "email" id="mailAdd" placeholder="babycakes@gmail.com"title="Please submit a valid e-mail."></center></div></td>
+    </form>
+    <!-- end e-mail -->
+    
+    <!-- edit -->
+    <td>
+   
+    <!-- end edit -->
+    
+    <!-- delete -->
+    <td><button onclick="clearFunction()">✖</button></td>
+    
+    
+        
+
+</table>
+<table id = "add">
+        <tr>
+           <td><center><input type="submit" value = "✚"></center></td> 
+    
+        
+    </tr>
+</table>
+<!-- end add to table -->
+
+
+<!-- search table -->
+<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names.." title="Type in a name">
+<!-- end search table -->
+
+<!-- contacts table -->
+<table id="contacts">
+<tr>
+  </tr>
+  <tr>
+  <!-- avatar -->
+    <td style="width:100px"><center>
+    <div class = "avatars">
+    <img src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj" style="width: 100px">
+    </div></center></td>
+    <!-- eend avatar -->
+    
+    <!-- name -->
+    <td width = "100px" nowrap="nowrap"><center><div contenteditable > Marie Anders </div></center></td>
+    <!-- end name -->
+    
+    <!-- phone -->
+    <td width = "100px" nowrap="nowrap"><center><div contenteditable style>32122222</div></center></td>
+    <!-- end phone -->
+    
+    <!-- e-mail -->
+    <td width = "100px" nowrap="nowrap"><center><div contenteditable>anders@gmail.com</center></div></td>
+    <!-- end e-mail -->
+    
+    <!-- edit -->
+    <td><button onclick = "editFunction">↺</button>
+   
+    <!-- end edit -->
+    
+    <!-- delete -->
+    <td><button onclick="deleteFunction()">✖</button></td>
+
+  <table>
+  <thead>
+  </thead>
+    <tr>
+     
+    </tr>
+  </table>
+  
+
+  
+  
+  </span>
+  </div>
+    </b></center></td>
+    <!-- end more -->
+  </tr>
+</table>
+</center>
+</div>
+<!-- end table -->
+
+<div class="column3"></div>
+
+<!-- log in form --> 
+</div>
+</center></div>
+
+<script>
+// deletion action
+function popUp() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+function deleteFunction() {
+  document.getElementById("contacts").deleteRow(1);
+}
+
+// edit action
+
+function editFunction() {
+  document.getElementById("demo").innerHTML = "deleted";
+}
+
+function addFunction() {
+  var table = document.getElementById("contacts");
+  var tableAdd = document.getElementById("add");
+  var input = document.getElementById("nameAdd");
+  var row = table.insertRow(1);
+  var rowAdd = tableAdd.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  cell1.innerHTML = "<td style=\"width:200px\"><center><div class = \"avatars\"><img src=\"https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj\" style=\"width: 100px\"></div></div></center></td>";
+  cell2.innerHTML = "<div contenteditable> Name </div>"
+  cell3.innerHTML = "<div contenteditable> Number </div>";
+  cell4.innerHTML = "<div contenteditable> E-mail </div>";
+  cell5.innerHTML = "<button onclick = \"editFunction\">✎</button>";
+  cell6.innerHTML =" <td><button onclick=\"deleteFunction()\">✖</button></td> ";
+}
+function clearFunction() {
+	var input = document.getElementById("nameAdd");
+	var cellPhone = row.getElementsByTagName("newPhone")
+	var cellMail = row.getElementsByTagName("newMail")
+
+	
+	input.value = "fff";
+	cellPhone.innerHTML = "";
+	cellMail.innerHTML = "";
+	
+}
+function searchFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("contacts");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+
+</script>
+
+</body>
+</html>
