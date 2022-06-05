@@ -497,32 +497,32 @@ color: #000;
 <div class = "mainNav">
 <div id="mySidenav" class="sideLog"><center>
 <div class="snowflakes" aria-hidden="true">
-  <div class="snowflake">
-🍁
+  <div class="snowflake" style = "font-family: 'Noto Emoji', sans-serif;">
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/qmOn1dT.png">
   </div>
   <div class="snowflake">
-🍁
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/l6JPg4g.png">
+  </div>
+  <div class="snowflake" style = "font-family: 'Noto Emoji', sans-serif;">
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/WfjYz9e.png">
   </div>
   <div class="snowflake">
-🌿
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/PudNcRw.png">
   </div>
   <div class="snowflake">
-🍁
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/l6JPg4g.png">
   </div>
   <div class="snowflake">
-🌿
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/l6JPg4g.png">
   </div>
   <div class="snowflake">
-🌿
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/PudNcRw.png">
   </div>
   <div class="snowflake">
-🍁
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/PudNcRw.png">
   </div>
   <div class="snowflake">
-🍁
-  </div>
-  <div class="snowflake">
-🌿
+<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 2%" src="https://imgur.com/qmOn1dT.png">
   </div>
   <div class="snowflake">
 
@@ -541,7 +541,7 @@ color: #000;
   <input type="text" id="lname" name="lname" placeholder="" style = "border: 0px;width: 40%">
   <br>
   <br>
-  <input type="submit"style ="background: linear-gradient(to right,#6fc80f,#86d72f); color: white; border: 0px; height: 2%; width: 5%; padding: 5px 0;"  value="log-in">
+  <input type="submit" onclick = "closeNav()" style ="background: linear-gradient(to right,#6fc80f,#86d72f); color: white; border: 0px; height: 2%; width: 5%; padding: 5px 0;"  value="log-in">
   <br>
 </form>
 <label style = "font-size: 12px">need an account?</label><button style = "font-size: 12px; background-color: transparent; border: 0px; color:#86d72f;  " onclick="signFunction()">sign-up!</button>
