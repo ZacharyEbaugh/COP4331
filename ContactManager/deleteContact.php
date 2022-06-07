@@ -19,10 +19,10 @@
 	WHERE user_id = :userId AND username = :user AND first_name = :first AND last_name = :last
 	AND phone_num = :num AND email = :email AND address = :addr";
 
-	if ($con->query($sql) === TRUE){
+	if ($conn->query($sql) === TRUE){
 		echo "Record deleted successfully";
 	}
 	else{
-		echo "Error deleting record: " . $con->error;
+		echo "Error deleting record: " . $conn->error;
 	}
 ?>
