@@ -18,10 +18,10 @@
 	$sql = "INSERT INFO contact_list (user_id, username, first_name, last_name, phone_num, email, address) 
 	VALUES (:userId, :user, :first, :last, :num, :email, :addr)";
 	
-	if ($con->query($sql) === TRUE){
+	if ($conn->query($sql) === TRUE){
 		echo "New record created successfully";
 	} 
 	else{
-		echo "Error: " . $sql . "<br>" . $con->error;
+		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 ?>
