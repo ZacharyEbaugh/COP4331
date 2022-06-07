@@ -1,6 +1,7 @@
 <?php
 	$inData = getRequestInfo();
-	
+
+	$id = $_SESSION['id'];
 	$first_name = $inData["first_name"];
 	$last_name = $inData["last_name"];
 	$username = $inData["username"];
@@ -8,7 +9,7 @@
 	$email = $inData["email"];
 	$phone_num = $inData["phone_num"];
 	$address = $inData["address"];
-	
+
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
 	if($conn->connect_error)
 	{
@@ -16,7 +17,7 @@
 	}
 	else
 	{
-		$sql = "INSERT into user_info (first_name, last_name, username, password, email, address, phone_num) VALUES('$first_name', '$last_name', '$username', '$password', '$email', '$phone_num', '$address')";
+		$sql = "UPDATE user_info SET username = '$username', password = '$password', first_name = '$firstName', last_name = '$last_name', email = '$email', phone_num = '$phone_num', address = '$address' WHERE id = '$id'";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);
