@@ -554,9 +554,9 @@ background: transparent;
 
 <div id="log">
 <form action="/Login.php" style = "top:50%;">
-  <label for="fname" style = "font-family: 'Josefin Sans', sans-serif;">Username</label><br>
+  <label for="first_name" style = "font-family: 'Josefin Sans', sans-serif;">Username</label><br>
   <input type="text" id="fname" name="fname" palceholder="" style = "border: 0px;width: 40%"><br>
-  <label for="lname" style = "font-family: 'Josefin Sans', sans-serif;">Password</label><br>
+  <label for="password" style = "font-family: 'Josefin Sans', sans-serif;">Password</label><br>
   <input type="text" id="lname" name="lname" placeholder="" style = "border: 0px;width: 40%">
   <br>
   <br>
