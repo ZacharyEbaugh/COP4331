@@ -469,7 +469,7 @@ background: transparent;
   <br>
   <center><img style = "width: 100px" src = "https://64.media.tumblr.com/508b7edacc0a950d1273f0466499accf/88f42c71fa566fc3-fa/s2048x3072/897db133d51bc7617aa9cb909650cbb6fd11b3f6.pnj"> </center>
 
-  <form action="/action_page.php">
+  <form action="/AddContact.php">
     <label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your first name..">
 
@@ -554,7 +554,7 @@ background: transparent;
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
 <div id="log">
-<form action="/action_page.php" style = "top:50%;">
+<form action="/Login.php" style = "top:50%;">
   <label for="fname" style = "font-family: 'Josefin Sans', sans-serif;">Username</label><br>
   <input type="text" id="fname" name="fname" palceholder="" style = "border: 0px;width: 40%"><br>
   <label for="lname" style = "font-family: 'Josefin Sans', sans-serif;">Password</label><br>
@@ -568,7 +568,7 @@ background: transparent;
 </div>
 
 <div id="sign">
-<form action="/action_page.php">
+<form action="/Register.php">
   <label for="fname" style = "font-family: 'Josefin Sans', sans-serif;">Username</label><br>
   <input type="text" id="fname" name="fname" palceholder="" style = "border: 0px; width: 40%"><br>
   <label for="lname" style = "font-family: 'Josefin Sans', sans-serif;">Password</label><br>
