@@ -10,16 +10,18 @@
 	$email = $inData["email"];
 	$addr = $inData["address"];
 
-	require('DB_connections.php');
-	session_start();
+	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
+	if($conn->connect_error){
+		returnWithError($conn->connect_error);
+	}
 	
 	$sql = "INSERT INFO contact_list (user_id, username, first_name, last_name, phone_num, email, address) 
 	VALUES (:userId, :user, :first, :last, :num, :email, :addr)";
 	
-	if ($con->query($sql) === TRUE) {
+	if ($con->query($sql) === TRUE){
 		echo "New record created successfully";
 	} 
-	else {
+	else{
 		echo "Error: " . $sql . "<br>" . $con->error;
 	}
 ?>
