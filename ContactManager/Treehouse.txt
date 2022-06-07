@@ -42,7 +42,6 @@ img{
     background: linear-gradient(to right,#74b9c8,#4c98ab);
     box-shadow: 3px 3px 0px 0px rgba(239, 134, 55,1);
 }
-
 .icons{
     font-family: 'Noto Emoji', sans-serif;
 }
@@ -471,16 +470,16 @@ background: transparent;
 
   <form action="/AddContact.php">
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+    <input type="text" id="first_name" name="firstname" placeholder="Your first name..">
 
     <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <input type="text" id="last_name" name="lastname" placeholder="Your last name..">
 
     <label for="phone">Phone number</label>
-    <input type="tel" id="lname" name="lastname" placeholder="Your phone number..">
+    <input type="tel" id="phone_num" name="lastname" placeholder="Your phone number..">
     
     <label for="e-mail">E-mail</label>
-    <input type="email" id="lname" name="lastname" placeholder="Your email..">
+    <input type="email" id="email" name="lastname" placeholder="Your email..">
   
    <center>  <input type="submit" value="💾" style = "width: 100%; font-family: 'Noto Emoji', sans-serif;" >
    
