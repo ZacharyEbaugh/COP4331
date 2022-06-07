@@ -18,10 +18,8 @@
 	else
 	{
 		$sql = "UPDATE contact_list SET first_name = '$firstName', last_name = '$last_name', user_id = '$user_id', email = '$email', phone_num = '$phone_num', address = '$address' WHERE id = '$id'";
-		if(!($conn->query($sql)))
-		{
-			returnWithError($conn->error);
-		}
+		
+		$conn->query($sql);
 		$conn->close();
 	}
 
