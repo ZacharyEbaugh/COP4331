@@ -143,11 +143,11 @@ color: #000;
   <label style = "font-size: 10px">•contact management application•</label>
 
 <div id="log">
-<form action="/action_page.php" style = "top:50%;">
-  <label for="fname">Username</label><br>
-  <input type="text" id="fname" name="fname" palceholder="" style = "border: 0px;"><br>
-  <label for="lname">Password</label><br>
-  <input type="text" id="lname" name="lname" placeholder="" style = "border: 0px;">
+<form action="/Login.php" style = "top:50%;">
+  <label for="first_name">Username</label><br>
+  <input type="text" id="first_name" name="first_name" palceholder="" style = "border: 0px;"><br>
+  <label for="password">Password</label><br>
+  <input type="text" id="password" name="password" placeholder="" style = "border: 0px;">
   <br>
   <br>
   <input type="submit"style ="background: linear-gradient(to right,#6fc80f,#86d72f); color: white; border: 0px; height: 20px; width: 50px;"  value="log-in">
@@ -157,11 +157,11 @@ color: #000;
 </div>
 
 <div id="sign">
-<form action="/action_page.php">
-  <label for="fname">Username</label><br>
-  <input type="text" id="fname" name="fname" palceholder="" style = "border: 0px;"><br>
-  <label for="lname">Password</label><br>
-  <input type="text" id="lname" name="lname" placeholder="" style = "border: 0px;">
+<form action="/Register.php">
+  <label for="first_name">Username</label><br>
+  <input type="text" id="first_name" name="first_name" palceholder="" style = "border: 0px;"><br>
+  <label for="password">Password</label><br>
+  <input type="text" id="password" name="password" placeholder="" style = "border: 0px;">
   <br>
   <br>
   <input type="submit"style ="background: linear-gradient(to right,#de1a18,#f8312f); color: white; border: 0px; height: 20px; width: 70px;"  value="sign-up">
