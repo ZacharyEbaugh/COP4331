@@ -197,7 +197,7 @@ function logFunction() {
     y.style.display = "block";
   }
 }
-const urlBase = 'http://cop4331-8.xyz/Login';
+const urlBase = 'http://cop4331-8.xyz/API/Login';
 const extension = 'php';
 
 let userId = 0;
