@@ -145,7 +145,7 @@ color: #000;
   <label style = "font-size: 10px">•contact management application•</label>
 
 <div id="log">
-<form action="/Login.php" style = "top:50%;">
+<form action="/API/Login.php" style = "top:50%;">
   <label for="username">Username</label><br>
   <input type="text" id="usernameLog" name="username" palceholder="" style = "border: 0px;"><br>
   <label for="password">Password</label><br>
