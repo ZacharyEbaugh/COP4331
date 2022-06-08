@@ -254,11 +254,6 @@ function doLogin()
 	}
 
 }
-    
-    const h1 = document.createElement("H1");
-const textNode = document.createTextNode(tmp);
-h1.appendChild(textNode);
-document.body.appendChild(h1);
 
 </script>
    
