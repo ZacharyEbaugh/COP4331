@@ -1,7 +1,7 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$id = readCookie(); 
+	$user_id = readCookie(); 
 	$first_name = $inData["first_name"];
 	$last_name = $inData["last_name"];
 	$username = $inData["username"];
@@ -16,7 +16,7 @@
 	}
 	else
 	{
-		$sql = "INSERT into contact_list (id, first_name, last_name, username, email, address, phone_num) VALUES('$id', '$first_name', '$last_name', '$username', '$email', '$phone_num', '$address')";
+		$sql = "INSERT into contact_list (user_id, first_name, last_name, username, email, address, phone_num) VALUES('$user_id', '$first_name', '$last_name', '$username', '$email', '$phone_num', '$address')";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);
