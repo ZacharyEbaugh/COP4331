@@ -197,12 +197,6 @@ function logFunction() {
     y.style.display = "block";
   }
 }
-const urlBase = 'http://cop4331-8.xyz';
-const extension = 'php';
-
-let userId = 0;
-let firstName = "";
-let lastName = "";
 
 function doLogin()
 {
@@ -210,14 +204,14 @@ function doLogin()
 	firstName = "";
 	lastName = "";
 	
-	let login = document.getElementById("username").value;
+	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
 	var hash = md5( password );
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	let tmp = {login:login,password:password};
-	var tmp = {login:login,password:hash};
+	let tmp = {username:username,password:password};
+	var tmp = {username:username,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
 	let url = urlBase + '/API/Login.' + extension;
