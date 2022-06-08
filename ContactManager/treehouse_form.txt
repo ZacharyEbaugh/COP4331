@@ -160,10 +160,10 @@ color: #000;
 
 <div id="sign">
 <form action="/Register.php">
-  <label for="username">Username</label><br>
-  <input type="text" id="username" name="username" placeholder="" style = "border: 0px;"><br>
-  <label for="password">Password</label><br>
-  <input type="text" id="password" name="password" placeholder="" style = "border: 0px;">
+  <label for="usernameA">Username</label><br>
+  <input type="text" id="usernameA" name="usernameA" placeholder="" style = "border: 0px;"><br>
+  <label for="passwordA">Password</label><br>
+  <input type="text" id="passwordA" name="passwordA" placeholder="" style = "border: 0px;">
   <br>
   <br>
   <input type="submit"style ="background: linear-gradient(to right,#de1a18,#f8312f); color: white; border: 0px; height: 20px; width: 70px;"  value="sign-up">
