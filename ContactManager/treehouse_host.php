@@ -493,20 +493,87 @@ background: transparent;
  
   </div>
   <div class="column2" >
-  <!-- table of contacts -->
-  <table id="contacts">
-    <tr>
-    <td><img style = "width: 100px" src = "https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
-    <td >Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px" >⟲</td>
-  </tr>
-  
-</table>
-  <!-- end table of contacts -->
-  </div>
+
+      <?php
+
+      $query = "SELECT * FROM `contact_list` WHERE `user_id` = '1' LIMIT 10";
+
+      $result = mysqli_query($con, $query);
+      if (mysqli_num_rows($result) > 0) { ?>
+        <!-- table of contacts -->
+        <div class="displayResult">
+            <table id="contacts">
+                <thead>
+                    <tr>
+                        <th>Profile Picture</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <?php
+                $result = mysqli_query($con, $query);
+
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                        $username = $row['username'];
+                        $password = $row['password'];
+                        $firstName = $row['first_name'];
+                        $lastName = $row['last_name'];
+                        $email = $row['email'];
+                        $address = $row['address'];
+                ?>
+
+                <tbody>
+                    <tr>
+                        <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
+                        <td><?php echo $firstName; ?></td>
+                        <td><?php echo $lastName; ?></td>
+                        <td><?php echo $email; ?></td>
+                        <td><?php echo $address; ?></td>
+                        <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px">⟲</td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <?php
+                }
+                } else {
+                    echo "<h6 class = 'text-danger'>No results found...</h6>";
+                }
+            ?>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+          $(document).ready(function() {
+            $("#live-search").keyup(function() {
+              var input = $(this).val();
+              // alert(input);
+              if (input != " ") {
+                $.ajax({
+                  url: "live-search.php",
+                  method: "POST",
+                  data: {
+                    input: input
+                  },
+
+                  success: function(data) {
+                    $(".displayResult").html(data);
+                  }
+                });
+              } else {
+                // $(".displayResult").css("display", "none");
+              }
+            })
+          })
+        </script>
+            </tbody>
+          </table>
+        <!-- end table of contacts -->
+        </div>
+    </div>
   <div class="column3" >
   </div>
 </div>
