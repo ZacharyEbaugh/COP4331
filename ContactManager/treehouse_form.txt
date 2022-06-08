@@ -177,6 +177,10 @@ color: #000;
 </div>
 <script>
 
+let userId = 0;
+let firstName = "";
+let lastName = "";
+
 function signFunction() {
   var x = document.getElementById("log");
   var y = document.getElementById("sign");
