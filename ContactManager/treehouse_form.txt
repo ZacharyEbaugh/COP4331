@@ -207,7 +207,7 @@ let lastName = "";
 function doLogin()
 {
 	userId = 0;
-	firstName = "";
+	firstName = "llama";
 	lastName = "";
 	
 	let login = document.getElementById("username").value;
@@ -252,7 +252,7 @@ function doLogin()
 	}
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message + "hi, Gian and Audiel";
+		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
 }
