@@ -47,25 +47,25 @@ if (isset($_POST['input'])) {
                         $address = $row['address'];
                 ?>
 
-                        <tbody>
-                            <tr>
-                                <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
-                                <td><?php echo $firstName; ?></td>
-                                <td><?php echo $lastName; ?></td>
-                                <td><?php echo $email; ?></td>
-                                <td><?php echo $address; ?></td>
-                                <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px">⟲</td>
-                            </tr>
-                        <?php } ?>
-                        </tbody>
+                <tbody>
+                    <tr>
+                        <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
+                        <td><?php echo $firstName; ?></td>
+                        <td><?php echo $lastName; ?></td>
+                        <td><?php echo $email; ?></td>
+                        <td><?php echo $address; ?></td>
+                        <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px">⟲</td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
             </table>
-<?php
+            <?php
                 }
-            } else {
-                echo "<h6 class = 'text-danger'>No data found</h6>";
-            }
-        }
+                } else {
+                    echo "<h6 class = 'text-danger'>No results found...</h6>";
+                }
+    }
 ?>
-        </body>
+    </body>
 
-        </html>
+</html>

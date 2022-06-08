@@ -3,7 +3,6 @@
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
-
 }
 
 #contacts td,
@@ -48,4 +47,8 @@
 
 #contacts tr td:last-child {
     border-right: 0;
+}
+
+.text-danger {
+    font-size: 7vw;
 }
