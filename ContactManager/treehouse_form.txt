@@ -104,6 +104,8 @@ color: #000;
 </head>
 <body>
 
+
+
 <div class = "mainNav">
 <div id="mySidenav" class="sideLog"><center>
 <div class="snowflakes" aria-hidden="true">
@@ -150,7 +152,7 @@ color: #000;
   <input type="text" id="password" name="password" placeholder="" style = "border: 0px;">
   <br>
   <br>
-  <input type="submit"style ="background: linear-gradient(to right,#6fc80f,#86d72f); color: white; border: 0px; height: 20px; width: 50px;"  value="log-in">
+  <input type="submit" onclick = "doLogin()" style ="background: linear-gradient(to right,#6fc80f,#86d72f); color: white; border: 0px; height: 20px; width: 50px;"  value="log-in">
   <br>
 </form>
 <label style = "font-size: 12px">need an account?</label><button style = "font-size: 12px; background-color: transparent; border: 0px; color:#86d72f;  " onclick="signFunction()">sign-up!</button>
@@ -195,6 +197,61 @@ function logFunction() {
     y.style.display = "block";
   }
 }
+
+function doLogin()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	
+	let login = document.getElementById("username").value;
+	let password = document.getElementById("password").value;
+//	var hash = md5( password );
+	
+	document.getElementById("loginResult").innerHTML = "";
+
+	let tmp = {login:login,password:password};
+//	var tmp = {login:login,password:hash};
+	let jsonPayload = JSON.stringify( tmp );
+	
+	let url = urlBase + '/Login.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				let jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				if( userId < 1 )
+				{		
+					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+
+				saveCookie();
+	
+				window.location.href = "host.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+    
+    
 </script>
    
 </body>
