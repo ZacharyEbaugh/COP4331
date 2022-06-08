@@ -98,3 +98,26 @@ if (mysqli_num_rows($result) > 0) {?>
 </body>
 
 </html>
+
+<?php
+
+$query = "SELECT * FROM `contact_list` WHERE `user_id` = '1' LIMIT 10";
+
+$result = mysqli_query($con, $query);
+
+if (mysqli_num_rows($result) > 0) 
+{
+  while($row = mysqli_fetch_assoc($result)) 
+  {
+
+    $username = $row['username'];
+    $password = $row['password'];
+    $firstName = $row['first_name'];
+    $lastName = $row['last_name'];
+    $email = $row['email'];
+    $address = $row['address'];
+  } 
+  } else {
+      echo "<h6 class = 'text-danger'>No data found</h6>";
+  }
+?>
