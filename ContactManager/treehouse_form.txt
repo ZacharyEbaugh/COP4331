@@ -252,7 +252,7 @@ function doLogin()
 	}
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("loginResult").innerHTML = err.message + "hi, Gian and Audiel";
 	}
 
 }
