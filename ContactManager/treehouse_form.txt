@@ -197,7 +197,7 @@ function logFunction() {
     y.style.display = "block";
   }
 }
-const urlBase = 'http://cop4331-8.xyz/API/Login';
+const urlBase = 'http://cop4331-8.xyz';
 const extension = 'php';
 
 let userId = 0;
@@ -220,7 +220,7 @@ function doLogin()
 	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
-	let url = urlBase + '/Login.' + extension;
+	let url = urlBase + '/API/Login.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
