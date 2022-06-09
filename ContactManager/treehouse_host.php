@@ -154,12 +154,25 @@
 
     }
 
+.editButt{
+    width: 10%;
+    left: 95%;
+    z-index: 15;
+    display: inline;
+    position: relative;
+    background-color: transparent;
+    border: 0px;
+}
 
-    .addContainer {}
-
-    .searchContainer {}
-
-    .contactsContainer {}
+.delButt{
+      width: 10%;
+    left: 80%;
+    z-index: 15;
+    display: inline;
+    position: relative;
+    background-color: transparent;
+    border: 0px;
+}
 
     .column1 {
       float: left;
@@ -660,7 +673,9 @@
               <input type="text" class="form-control" id="live-search" autocomplete="off" placeholder="Search Contacts" style="border: 0 none;">
             </div>
             <br>
-            <button class="button" onclick="getForm()" style="width: 50%">Add New Contact</button>
+            <button class = "button" onclick= "getProfile()" style="width: 50%">Update Profile</button>
+            <br>
+            <button class = "button" onclick= "getForm()" style="width: 50%">Add New Contact</button>
             <br>
             <button class="button" onclick="openNav()" style="width: 50%">Logout</button>
           </left>
@@ -669,37 +684,72 @@
         <div class="sidenavA" id="sidenavA">
           <left>
             <h style="font-family: 'Pacifico', cursive; text-align: center; font-size: 4vw; width: 50%"> &nbspTreehouse</h>
-            <div class="formCon">
-              <br>
-              <center><img style="width: 100px" src="https://64.media.tumblr.com/508b7edacc0a950d1273f0466499accf/88f42c71fa566fc3-fa/s2048x3072/897db133d51bc7617aa9cb909650cbb6fd11b3f6.pnj"> </center>
+              
+  <div class = "formCon" id = "addCon">
+  <br>
+  Add a new contact
+  <br>
+  <center><img style = "width: 100px" src = "https://64.media.tumblr.com/508b7edacc0a950d1273f0466499accf/88f42c71fa566fc3-fa/s2048x3072/897db133d51bc7617aa9cb909650cbb6fd11b3f6.pnj"> </center>
 
-              <form action="/AddContact.php">
-                <label for="fname">First Name</label>
-                <input type="text" id="first_name" name="firstname" placeholder="Your first name..">
+  <form action="/AddContact.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="first_name" name="firstname" placeholder="Your first name..">
 
-                <label for="lname">Last Name</label>
-                <input type="text" id="last_name" name="lastname" placeholder="Your last name..">
+    <label for="lname">Last Name</label>
+    <input type="text" id="last_name" name="lastname" placeholder="Your last name..">
 
-                <label for="phone">Phone number</label>
-                <input type="tel" id="phone_num" name="phone_num" placeholder="Your phone number..">
+    <label for="phone">Phone number</label>
+    <input type="tel" id="phone_num" name="phone_num" placeholder="Your phone number..">
+    
+    <label for="e-mail">E-mail</label>
+    <input type="email" id="email" name="email" placeholder="Your email..">
+  
+   <center>  <input type="submit" value="💾" style = "width: 100%; font-family: 'Noto Emoji', sans-serif;" >
+   
+</center>
+  </form>   
+     <center>
+<button onclick= "getNav()" style = "width: 100%; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px"> ✖ </button>
+   </center>
+  </left>
+  </div>
+  
+  <div class = "formCon" id = "profile">
+  <br>
+  Update profile
+  <br>
+  <center><img style = "width: 100px" src = "https://64.media.tumblr.com/508b7edacc0a950d1273f0466499accf/88f42c71fa566fc3-fa/s2048x3072/897db133d51bc7617aa9cb909650cbb6fd11b3f6.pnj"> </center>
 
-                <label for="e-mail">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Your email..">
+  <form action="/AddContact.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="first_name" name="firstname" placeholder="Your first name..">
 
-                <center> <input type="submit" value="💾" style="width: 100%; font-family: 'Noto Emoji', sans-serif;">
+    <label for="lname">Last Name</label>
+    <input type="text" id="last_name" name="lastname" placeholder="Your last name..">
 
-                </center>
-              </form>
-              <center>
-                <button onclick="getNav()" style="width: 100%; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px"> ✖ </button>
-              </center>
-          </left>
-        </div>
-      </div>
-
-    </div>
+    <label for="phone">Phone number</label>
+    <input type="tel" id="phone_num" name="phone_num" placeholder="Your phone number..">
+    
+    <label for="e-mail">E-mail</label>
+    <input type="email" id="email" name="email" placeholder="Your email..">
+  
+   <center>  <input type="submit" value="💾" style = "width: 100%; font-family: 'Noto Emoji', sans-serif;" >
+   
+</center>
+  </form>   
+     <center>
+<button onclick= "getNav()" style = "width: 100%; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px"> ✖ </button>
+   </center>
+  </left>
+  </div>
+  </div>
+  </div>
     <div class="column2">
-
+ <br>
+<button onclick = "makeEdit()" class = "editButt" id = "allow" style = "display: none; font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 20px;"> 💾 </button>
+<button onclick = "makeNoEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 20px;"> 🖍</button>
+<button onclick = "deleteCon()" class = "delButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 20px;"> ✖</button>
+ <br>
       <?php
 
       $query = "SELECT * FROM `contact_list` WHERE `user_id` = '1' LIMIT 10";
@@ -858,31 +908,62 @@
         }
       }
 
-      function getForm() {
-        var x = document.getElementById("sidenav1");
-        var y = document.getElementById("sidenavA");
-        var z = document.getElementById("formCon");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          y.style.display = "block";
-          z.style.webkitAnimationName = "trans";
-          x.style.display = "none";
+function getForm() {
+  var x = document.getElementById("sidenav1");
+  var y = document.getElementById("sidenavA");
+  var z = document.getElementById("addCon");
+  var v = document.getElementById("profile");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    y.style.display = "block";
+    z.style.display = "block";
+    x.style.display = "none";
+    v.style.display = "none";
+   
+  }
+}
 
-        }
-      }
+function getProfile() {
+  var x = document.getElementById("sidenav1");
+  var y = document.getElementById("sidenavA");
+  var z = document.getElementById("addCon");
+  var v = document.getElementById("profile");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+      
+    z.style.display = "none";
+    x.style.display = "none";
+    y.style.display = "block";
+    v.style.display = "block";
+   
+  }
+}
 
-      function getNav() {
-        var x = document.getElementById("sidenav1");
-        var y = document.getElementById("sidenavA");
-        var z = document.getElementById("formCon");
-        if (y.style.display === "none") {
-          y.style.display = "block";
-        } else {
-          y.style.display = "none";
-          x.style.display = "block";
-        }
-      }
+function getNav() {
+  var x = document.getElementById("sidenav1");
+  var y = document.getElementById("sidenavA");
+  var z = document.getElementById("formCon");
+  if (y.style.display === "none") {
+    y.style.display = "block";
+  } else {
+    y.style.display = "none";
+    x.style.display = "block";
+  }
+}
+
+function makeEdit(){
+ document.getElementById("dontAllow").style.display = "inline";
+ document.getElementById("contacts").setAttribute("contenteditable", "false");
+ document.getElementById("allow").style.display = "none";
+ 
+}
+function makeNoEdit(){
+ document.getElementById("allow").style.display = "inline";
+ document.getElementById("contacts").setAttribute("contenteditable", "true");
+ document.getElementById("dontAllow").style.display = "none";
+}
     </script>
 </body>
 
