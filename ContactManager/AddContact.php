@@ -1,7 +1,7 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$user_id = readCookie(); 
+	$user_id = $inData["user_id"]; 
 	$first_name = $inData["first_name"];
 	$last_name = $inData["last_name"];
 	$username = $inData["username"];

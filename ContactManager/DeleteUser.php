@@ -1,7 +1,7 @@
 <?php
 	$inData = getRequestInfo();
 
-	$id = $readCookie();
+	$id = $inData["user_id"];
 
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
 	if($conn->connect_error)
