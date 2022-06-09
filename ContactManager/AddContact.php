@@ -1,12 +1,7 @@
 <?php
-<<<<<<< HEAD
-=======
 
 	require('DB_connections.php');
 	session_start();
-
-	$inData = getRequestInfo();
->>>>>>> d3223cf3755bf90943d9cec96bd615eee2ff8a0d
 	
 	$user_id = $_POST["user_id"]; 
 	$first_name = $_POST["first_name"];
