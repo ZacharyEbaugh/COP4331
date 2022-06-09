@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("zacharyebaugh.com", "zachasv9_team", "COP4331", "zachasv9_ContactManagerDB");
+$con = mysqli_connect("localhost", "UserDataBase", "43318Cop", "COP4331");
 
 if (mysqli_connect_error()) {
 

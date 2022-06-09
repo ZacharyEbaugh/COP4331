@@ -4,7 +4,7 @@ include("DB_connections.php");
 
 if (isset($_POST['input'])) {
     $input = $_POST['input'];
-    $query = "SELECT * FROM `contact_list` WHERE `username` LIKE '{$input}%' AND `user_id` = '1' LIMIT 10";
+    $query = "SELECT * FROM `contact_list` WHERE `username` LIKE '{$input}%' AND `user_id` = $_COOKIE['userId'] LIMIT 10";
 
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) { ?>
