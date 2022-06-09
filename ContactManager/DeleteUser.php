@@ -1,4 +1,8 @@
 <?php
+
+	require('DB_connections.php');
+	session_start();
+
 	$inData = getRequestInfo();
 
 	$id = $inData["user_id"];
