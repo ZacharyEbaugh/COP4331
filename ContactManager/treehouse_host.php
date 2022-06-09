@@ -720,7 +720,7 @@
   <br>
   <center><img style = "width: 100px" src = "https://64.media.tumblr.com/508b7edacc0a950d1273f0466499accf/88f42c71fa566fc3-fa/s2048x3072/897db133d51bc7617aa9cb909650cbb6fd11b3f6.pnj"> </center>
 
-  <form action="/AddContact.php">
+  <form action="/AddContact.php" method="POST">
     <label for="fname">First Name</label>
     <input type="text" id="first_name" name="firstname" placeholder="Your first name..">
 

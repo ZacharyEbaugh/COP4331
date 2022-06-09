@@ -1,17 +1,20 @@
 <?php
+<<<<<<< HEAD
+=======
 
 	require('DB_connections.php');
 	session_start();
 
 	$inData = getRequestInfo();
+>>>>>>> d3223cf3755bf90943d9cec96bd615eee2ff8a0d
 	
-	$user_id = $inData["user_id"]; 
-	$first_name = $inData["first_name"];
-	$last_name = $inData["last_name"];
-	$username = $inData["username"];
-	$email = $inData["email"];
-	$phone_num = $inData["phone_num"];
-	$address = $inData["address"];
+	$user_id = $_POST["user_id"]; 
+	$first_name = $_POST["first_name"];
+	$last_name = $_POST["last_name"];
+	$username = $_POST["username"];
+	$email = $_POST["email"];
+	$phone_num = $_POST["phone_num"];
+	$address = $_POST["address"];
 	
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
 	if($conn->connect_error)
