@@ -162,19 +162,19 @@ color: #000;
 <div id="sign">
 <form>
   <label for="username">Username</label><br>
-  <input type="text" id="username" name="username" placeholder="" style = "border: 0px;"><br>
+  <input type="text" id="usernameA" name="username" placeholder="" style = "border: 0px;"><br>
   <label for="password">Password</label><br>
-  <input type="password" id="password" name="password" placeholder="" style = "border: 0px;"><br>
+  <input type="password" id="passwordA" name="password" placeholder="" style = "border: 0px;"><br>
   <label for="first_name">First Name</label><br>
-  <input type="text" id="first_name" name="first_name" placeholder="" style = "border: 0px;"><br>
+  <input type="text" id="first_nameA" name="first_name" placeholder="" style = "border: 0px;"><br>
   <label for="last_name">Last Name</label><br>
-  <input type="text" id="last_name" name="last_name" placeholder="" style = "border: 0px;"><br>
+  <input type="text" id="last_nameA" name="last_name" placeholder="" style = "border: 0px;"><br>
   <label for="email">Email</label><br>
-  <input type="text" id="email" name="email" placeholder="" style = "border: 0px;"><br>
+  <input type="text" id="emailA" name="email" placeholder="" style = "border: 0px;"><br>
   <label for="phone">Phone</label><br>
-  <input type="text" id="phone_num" name="phone_num" placeholder="" style = "border: 0px;"> <br>
+  <input type="text" id="phone_numA" name="phone_num" placeholder="" style = "border: 0px;"> <br>
   <label for="address">Address</label><br>
-  <input type="text" id="address" name="address" placeholder="" style = "border: 0px;">
+  <input type="text" id="addressA" name="address" placeholder="" style = "border: 0px;">
   <br>
   <br>
   <input type="submit" onclick = "doRegister()" style ="background: linear-gradient(to right,#de1a18,#f8312f); color: white; border: 0px; height: 20px; width: 70px;"  value="sign-up">
@@ -263,13 +263,13 @@ function doLogin()
 
 function doRegister()
 { 
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
-  let first_name = document.getElementById("first_name").value;
-  let last_name = document.getElementById("last_name").value;
-  let email = document.getElementById("email").value;
-  let phone_num = document.getElementById("phone_num").value;
-  let address = document.getElementById("address").value;
+  let username = document.getElementById("usernameA").value;
+  let password = document.getElementById("passwordA").value;
+  let first_name = document.getElementById("first_nameA").value;
+  let last_name = document.getElementById("last_nameA").value;
+  let email = document.getElementById("emailA").value;
+  let phone_num = document.getElementById("phone_numA").value;
+  let address = document.getElementById("addressA").value;
   
   document.getElementById("loginResult").innerHTML = "";
 
@@ -311,7 +311,7 @@ function saveCookie()
 
 function readCookie()
 {
-  userId = -1;2
+  userId = -1;
   let data = document.cookie;
   let splits = data.split(";");
   for(var i = 0; i < splits.length; i++) 
