@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `contact_list` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `contact_id` int(11) NOT NULL,
   `username` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `first_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
