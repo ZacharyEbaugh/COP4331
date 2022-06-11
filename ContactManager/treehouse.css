@@ -136,18 +136,6 @@ img{
 
 }
 
-
-.addContainer{
-    
-}
-
-.searchContainer{
-    
-}
-
-.contactsContainer{
-}
-
 .column1 {
   float: left;
   width: 25%;
@@ -181,6 +169,24 @@ img{
   content: "";
   display: table;
   clear: both;
+}
+
+#actions {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10px;
+}
+
+#actions td, th {
+  border: 0px;
+  text-align: left;
+  padding: 8px;
+  font-size: 8px;
+}
+
+#actions tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 /*table to hold the contacts */
@@ -229,6 +235,10 @@ img{
 }
 #contacts tr td:last-child {
   border-right: 0;
+}
+
+#contacts::before{
+    position: absolute;
 }
 
 .button {
@@ -320,7 +330,7 @@ font-family: 'Noto Emoji', sans-serif;
 font-family: 'Noto Sans Symbols 2', sans-serif;
 
 }
-@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:3%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:6%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left: %;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:9%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:12%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:15%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:18%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:21%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:24%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:10%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
 /* Demo Purpose Only*/
 .demo {
   font-family: 'Raleway', sans-serif;
@@ -370,6 +380,31 @@ color: #000;
   font-size: 36px;
   margin-left: 50px;
 }
+.editButt{
+    width: 50px;
+    height: 50px;
+    left: 95%;
+    z-index: 15;
+    display: inline;
+    position: relative;
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+}
+.ID{
+    display: none;
+}
+.delButt{
+      width: 50px;
+      height: 50px;
+    left: 75%;
+    z-index: 15;
+    display: inline;
+    position: relative;
+ background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+}
 #log {
   height: 100%;
   text-align: center;
@@ -382,6 +417,30 @@ color: #000;
   text-align: center;
   background-color: transparent;
   margin-top: 20px;
+}
+
+.delPop{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(256,256,256, .5);
+    color: white;
+    position: absolute;
+    z-index: 20;
+}
+
+.delCon{
+   width: 50%;
+   position: absolute;
+   padding: 20px 0;
+   top: 50%;
+   left: 50%;
+
+   transform: translate(-50%, -50%);
+   background-color: white;
+   color: black;
+   text-align: center;
+   vertical-align: center;
 }
 
 @media screen and (max-height: 450px) {
