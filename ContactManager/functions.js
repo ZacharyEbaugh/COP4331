@@ -128,7 +128,7 @@ function doRegister()
 
 function doEditContact()
 { 
-  let contact_id = ;
+  // let contact_id = ;
   let user_id = idCookie;
   let first_name = document.getElementById("first_name").value;
   let last_name = document.getElementById("last_name").value;
