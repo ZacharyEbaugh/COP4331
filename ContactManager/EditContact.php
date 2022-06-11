@@ -1,14 +1,12 @@
 <?php
 	$inData = getRequestInfo();
 
-	#Ask if we need to edit username in contact and if we need it in contact_list database.
-	$user_id = readCookie();
-	$id = $inData["id"];
-	$username = $inData["username"];
+	$contact_id = $inData["contact_id"];
+	$user_id = $inData["user_id"];
 	$first_name = $inData["first_name"];
 	$last_name = $inData["last_name"];
-	$email = $inData["email"];
 	$phone_num = $inData["phone_num"];
+	$email = $inData["email"];
 	$address = $inData["address"];
 
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
@@ -18,7 +16,7 @@
 	}
 	else
 	{
-		$sql = "UPDATE contact_list SET first_name = '$first_name', last_name = '$last_name', username = '$username', user_id = '$user_id', email = '$email', phone_num = '$phone_num', address = '$address' WHERE id = '$id'";
+		$sql = "UPDATE contact_list SET first_name = '$first_name', last_name = '$last_name', phone_num = '$phone_num', email = '$email', address = '$address' WHERE contact_id = '$contact_id' AND user_id = '$user_id' ";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);

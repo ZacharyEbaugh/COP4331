@@ -1,15 +1,12 @@
 <?php
-
-	require('DB_connections.php');
-	session_start();
+	$inData = getRequestInfo();
 	
-	$user_id = $_POST["user_id"]; 
-	$first_name = $_POST["first_name"];
-	$last_name = $_POST["last_name"];
-	$username = $_POST["username"];
-	$email = $_POST["email"];
-	$phone_num = $_POST["phone_num"];
-	$address = $_POST["address"];
+	$user_id = $inData["user_id"]; 
+	$first_name = $inData["first_name"];
+	$last_name = $inData["last_name"];
+	$phone_num = $inData["phone_num"];
+	$email = $inData["email"];
+	$address = $inData["address"];
 	
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
 	if($conn->connect_error)
@@ -18,7 +15,7 @@
 	}
 	else
 	{
-		$sql = "INSERT into contact_list (user_id, first_name, last_name, username, email, address, phone_num) VALUES('$user_id', '$first_name', '$last_name', '$username', '$email', '$phone_num', '$address')";
+		$sql = "INSERT into contact_list (user_id, first_name, last_name, phone_num, email, address) VALUES('$user_id', '$first_name', '$last_name', '$phone_num', '$email', '$address')";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);

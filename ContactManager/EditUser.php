@@ -1,13 +1,13 @@
 <?php
 	$inData = getRequestInfo();
 
-	$id = readCookie();
-	$first_name = $inData["first_name"];
-	$last_name = $inData["last_name"];
+	$id = $inData["id"];
 	$username = $inData["username"];
 	$password = $inData["password"];
-	$email = $inData["email"];
+	$first_name = $inData["first_name"];
+	$last_name = $inData["last_name"];
 	$phone_num = $inData["phone_num"];
+	$email = $inData["email"];
 	$address = $inData["address"];
 
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
@@ -17,7 +17,7 @@
 	}
 	else
 	{
-		$sql = "UPDATE user_info SET username = '$username', password = '$password', first_name = '$firstName', last_name = '$last_name', email = '$email', phone_num = '$phone_num', address = '$address' WHERE id = '$id'";
+		$sql = "UPDATE user_info SET username = '$username', password = '$password', first_name = '$firstName', last_name = '$last_name', phone_num = '$phone_num', email = '$email', address = '$address' WHERE id = '$id'";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);

@@ -1,11 +1,7 @@
 <?php
-
-	require('DB_connections.php');
-	session_start();
-
 	$inData = getRequestInfo();
 
-	$id = $inData["user_id"];
+	$id = $inData["id"];
 
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
 	if($conn->connect_error)
@@ -14,7 +10,7 @@
 	}
 	else
 	{
-		$sql = "DELETE FROM user_list WHERE id = '$id'";
+		$sql = "DELETE FROM user_info WHERE id = '$id'";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);

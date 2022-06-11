@@ -1,12 +1,12 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$first_name = $inData["first_name"];
-	$last_name = $inData["last_name"];
 	$username = $inData["username"];
 	$password = $inData["password"];
-	$email = $inData["email"];
+	$first_name = $inData["first_name"];
+	$last_name = $inData["last_name"];
 	$phone_num = $inData["phone_num"];
+	$email = $inData["email"];
 	$address = $inData["address"];
 	
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
@@ -16,7 +16,7 @@
 	}
 	else
 	{
-		$sql = "INSERT into user_info (first_name, last_name, username, password, email, address, phone_num) VALUES('$first_name', '$last_name', '$username', '$password', '$email', '$phone_num', '$address')";
+		$sql = "INSERT into user_info (username, password, first_name, last_name, phone_num,email, address) VALUES('$username', '$password', '$first_name', '$last_name', '$phone_num', '$email', '$address')";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);

@@ -1,12 +1,8 @@
 <?php
-	
-	require('DB_connections.php');
-	session_start();
-
 	$inData = getRequestInfo();
-	
-	$user_id = $inData["user_id"];
-	$id = $inData["id"];
+
+	$contact_id = $inData["contact_id"];
+	$user_id = $inData["user_id"]
 
 	$conn = new mysqli("localhost", "UserDataBase", "43318Cop", "COP4331");
 	if($conn->connect_error)
@@ -15,7 +11,7 @@
 	}
 	else
 	{
-		$sql = "DELETE FROM contact_list WHERE id = '$id'";
+		$sql = "DELETE FROM contact_list WHERE contact_id = '$contact_id' AND user_id = '$user_id'";
 		if(!($conn->query($sql)))
 		{
 			returnWithError($conn->error);
