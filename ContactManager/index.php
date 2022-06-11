@@ -108,38 +108,6 @@ color: #000;
 
 <div class = "mainNav">
 <div id="mySidenav" class="sideLog"><center>
-<div class="snowflakes" aria-hidden="true">
-   <div class="snowflake" style = "font-family: 'Noto Emoji', sans-serif;">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/qmOn1dT.png">
-  </div>
-  <div class="snowflake">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/l6JPg4g.png">
-  </div>
-  <div class="snowflake" style = "font-family: 'Noto Emoji', sans-serif;">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/WfjYz9e.png">
-  </div>
-  <div class="snowflake">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/PudNcRw.png">
-  </div>
-  <div class="snowflake">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/l6JPg4g.png">
-  </div>
-  <div class="snowflake">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/l6JPg4g.png">
-  </div>
-  <div class="snowflake">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/PudNcRw.png">
-  </div>
-  <div class="snowflake">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/PudNcRw.png">
-  </div>
-  <div class="snowflake">
-<img style = "border-radius: 0px; border: 0px; box-shadow: 0; background: transparent;box-shadow: 0px 0px 0px 0px rgba(239, 134, 55,1); width: 15%" src="https://imgur.com/qmOn1dT.png">
-  </div>
-  <div class="snowflake">
-
-</div>
-</div>
   <h style = "font-family: 'Pacifico', cursive; text-align: center; font-size: 4vw; width: 50%"> &nbspTreehouse</h>
   <br>
   <label style = "font-size: 10px">•contact management application•</label>
