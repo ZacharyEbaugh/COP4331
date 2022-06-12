@@ -66,7 +66,7 @@
     <input type="email" id="emailCon" name="email" placeholder="Your email.."> <br><br>
     
         <label for="address">Address</label> <br>
-    <input type="address" id="addressCon" name="address" placeholder="Your address.."> <br><br>
+    <input type="text" id="addressCon" name="address" placeholder="Your address.."> <br><br>
 <br>
 <input type="submit" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
 
