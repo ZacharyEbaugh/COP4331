@@ -27,6 +27,40 @@
 </div>
 </div>
 
+<div class = "delPop" id = "editPop">
+<div class = "delCon">
+<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">
+
+  <form action="/AddContact.php">
+      <label for="fname">Username</label> <br>
+    <input type="text" id="first_nameCon" name="firstname" placeholder="Your username.."> <br><br>
+    
+    <label for="fname">First Name</label> <br>
+    <input type="text" id="first_nameCon" name="firstname" placeholder="Your first name.."> <br><br>
+
+    <label for="lname">Last Name</label> <br>
+    <input type="text" id="last_nameCon" name="lastname" placeholder="Your last name.."> <br><br>
+
+    <label for="phone">Phone number</label> <br>
+    <input type="tel" id="phone_numCon" name="phone_num" placeholder="Your phone number.."> <br><br>
+    
+    <label for="e-mail">E-mail</label> <br>
+    <input type="email" id="emailCon" name="email" placeholder="Your email.."> <br><br>
+    
+        <label for="address">Address</label> <br>
+    <input type="address" id="addressCon" name="address" placeholder="Your address.."> <br><br>
+<br>
+<input type="submit" onclick= "closeRemPop()" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
+
+ <button onclick= "closeRemPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
+   
+</center>
+</form>   
+</div>
+<br>
+</div>
+</div>
+	
 <div class = "delPop" id = "remPopUp">
 <div class = "delCon">
 <div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete this contact?</div>
