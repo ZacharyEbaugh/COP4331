@@ -197,8 +197,8 @@
     
 <table id = "actions">
   <tr>
-    <th style = "width: 80%"></th>
-    
+    <th style = "width: 70%"></th>
+    <th style = "width: 10%"><button onclick = "GetSelected()"> test </button></th>
     <th  style = "width: 10%"><center> <button onclick = "makeEdit()" class = "editButt" id = "allow" style = "display: none; font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> SAVE </center></button>
     
     <button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
@@ -453,6 +453,30 @@ function addContactToTable() {
   cell1.innerHTML = "NEW CELL1";
   cell2.innerHTML = "NEW CELL2";
 }
+  
+    function GetSelected() {
+        var grid = document.getElementById(contacts");
+        var checkBoxes = grid.getElementsByTagName("INPUT");
+        var message = "Id Name                  Country\n";
+        var temp = "";
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked) {
+                var row = checkBoxes[i].parentNode.parentNode;
+                message += row.cells[1].innerHTML;
+                message += "   " + row.cells[2].innerHTML;
+                message += "   " + row.cells[3].innerHTML;
+                message += "\n";
+                //document.getElementById("Table1").deleteRow(i+1);
+                var temp = i + 1;
+            }
+        }
+ 
+        //Display selected Row data in Alert Box.
+        alert(message);
+        alert(temp);
+        return temp;
+        
+    }
 
 function closeEdit() {
         document.getElementById("editPop").style.display = "none";
