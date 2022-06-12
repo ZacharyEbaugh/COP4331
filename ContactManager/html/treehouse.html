@@ -21,7 +21,7 @@
 <div class = "delCon">
 <div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete your profile?</div>
 <br>
-<button onclick= "closeDelPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
+<button onclick= "EdiDelPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
 
 <button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CONFIRM </button>
 </div>
@@ -50,9 +50,9 @@
         <label for="address">Address</label> <br>
     <input type="address" id="addressCon" name="address" placeholder="Your address.."> <br><br>
 <br>
-<input type="submit" onclick= "closeRemPop()" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
+<input type="submit" onclick= "closeEdit()" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
 
- <button onclick= "closeRemPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
+ <button onclick= "closeEdit()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
    
 </center>
 </form>   
@@ -327,6 +327,11 @@ function closeRemPop(){
 function remContact() {
         document.getElementById("remPopUp").style.display = "block";
     }
+	
+function closeEdit() {
+        document.getElementById("editPop").style.display = "block";
+    }
+	
 function addContactToTable() {
   var table = document.getElementById("contacts");
   var row = table.insertRow(0);
