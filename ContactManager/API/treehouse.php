@@ -1,6 +1,8 @@
 <?php
   require('DB_connections.php');
+  session_start();
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -40,6 +42,40 @@
 <button onclick= "closeRemPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
 
 <button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
+</div>
+</div>
+
+<div class = "delPop" id = "editPop">
+<div class = "delCon">
+<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">
+
+  <form action="/AddContact.php">
+      <label for="fname">Username</label> <br>
+    <input type="text" id="first_nameCon" name="firstname" placeholder="Your username.."> <br><br>
+    
+    <label for="fname">First Name</label> <br>
+    <input type="text" id="first_nameCon" name="firstname" placeholder="Your first name.."> <br><br>
+
+    <label for="lname">Last Name</label> <br>
+    <input type="text" id="last_nameCon" name="lastname" placeholder="Your last name.."> <br><br>
+
+    <label for="phone">Phone number</label> <br>
+    <input type="tel" id="phone_numCon" name="phone_num" placeholder="Your phone number.."> <br><br>
+    
+    <label for="e-mail">E-mail</label> <br>
+    <input type="email" id="emailCon" name="email" placeholder="Your email.."> <br><br>
+    
+        <label for="address">Address</label> <br>
+    <input type="address" id="addressCon" name="address" placeholder="Your address.."> <br><br>
+<br>
+<input type="submit" onclick= "closeEdit()" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
+
+ <button onclick= "closeEdit()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
+   
+</center>
+</form>   
+</div>
+<br>
 </div>
 </div>
 
@@ -164,7 +200,7 @@
     
     <th  style = "width: 10%"><center> <button onclick = "makeEdit()" class = "editButt" id = "allow" style = "display: none; font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> SAVE </center></button>
     
-    <button onclick = "makeNoEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
+    <button onclick = "makeNoEdit()" onclick= "opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
     
     <th  style = "width: 10%"><button onclick = "remContact()" class = "delButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> DELETE</button> </center></th>
   </tr>
@@ -208,7 +244,16 @@
 </script>
 
 <?php
-$query = "SELECT * FROM `contact_list` WHERE `user_id` = 70";
+$username = $_SESSION['username'];
+
+$queryUserID = "SELECT * FROM `user_info` WHERE `username` = '$username'";
+$userIDResult = mysqli_query($con, $queryUserID);
+$userRow = mysqli_fetch_assoc($userIDResult);
+$userID = $userRow['id'];
+
+$_SESSION['id'] = $userID;
+
+$query = "SELECT * FROM `contact_list` WHERE `user_id` = '$userID'";
 
 $result = mysqli_query($con, $query);
 if (mysqli_num_rows($result) > 0) { ?>
@@ -236,7 +281,7 @@ if (mysqli_num_rows($result) > 0) { ?>
                   <td><?php echo $lastName; ?></td>
                   <td><?php echo $email; ?></td>
                   <td><?php echo $address; ?></td>
-                  <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px">⟲</td>
+                  <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px">âŸ²</td>
               </tr>
               <?php } ?>
           </tbody>
@@ -244,7 +289,7 @@ if (mysqli_num_rows($result) > 0) { ?>
       <?php
           }
           } else {
-              echo "<h6 class = 'text-danger'>No results found...</h6>";
+              echo "<h6 class = 'text-danger'>No contacts added yet</h6>";
           }
       ?>
   </div>
@@ -256,7 +301,7 @@ if (mysqli_num_rows($result) > 0) { ?>
         // alert(input);
         if (input != " ") {
           $.ajax({
-            url: "live-search.php",
+            url: "./API/live-search.php",
             method: "POST",
             data: {
               input: input
@@ -264,7 +309,7 @@ if (mysqli_num_rows($result) > 0) { ?>
 
             success: function(data) {
               $(".displayResult").html(data);
-            }
+            },
           });
         } else {
           // $(".displayResult").css("display", "none");
@@ -278,18 +323,8 @@ if (mysqli_num_rows($result) > 0) { ?>
   <div class = "">
 
 </div>
-  <table id="contacts">
-
-    <tr>
-    <td><img style = "width: 75%" src = "https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
-    <td >Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td class = "ID" id = "ID">Germany</td>
-  </tr>
-</table>
   <!-- end table of contacts -->
+
   </div>
   <div class="column3" >
   </div>
@@ -417,6 +452,13 @@ function addContactToTable() {
   cell1.innerHTML = "NEW CELL1";
   cell2.innerHTML = "NEW CELL2";
 }
+
+function closeEdit() {
+        document.getElementById("editPop").style.display = "none";
+    }
+function opEdit() {
+        document.getElementById("editPop").style.display = "block";
+    }
 
 function doEditUser()
 { 
