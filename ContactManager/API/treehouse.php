@@ -282,7 +282,7 @@ if (mysqli_num_rows($result) > 0) { ?>
                   <td><?php echo $lastName; ?></td>
                   <td><?php echo $email; ?></td>
                   <td><?php echo $address; ?></td>
-                  <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px"><button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
+                  <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px"><button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button>
     </td>
               </tr>
               <?php } ?>
