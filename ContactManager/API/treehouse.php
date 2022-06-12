@@ -47,9 +47,9 @@
 
 <div class = "delPop" id = "editPop">
 <div class = "delCon">
-<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">
+<div style = " font-family: 'Josefin Sans', sans-serif;">
 
-  <form action="/AddContact.php">
+  <center><form action="" style = "width: 50%">
       <label for="fname">Username</label> <br>
     <input type="text" id="first_nameCon" name="firstname" placeholder="Your username.."> <br><br>
     
@@ -68,12 +68,13 @@
         <label for="address">Address</label> <br>
     <input type="address" id="addressCon" name="address" placeholder="Your address.."> <br><br>
 <br>
-<input type="submit" onclick= "closeEdit()" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
+<input type="submit" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
 
- <button onclick= "closeEdit()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
+ <button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
    
 </center>
-</form>   
+</form>
+</center>   
 </div>
 <br>
 </div>
@@ -200,7 +201,7 @@
     
     <th  style = "width: 10%"><center> <button onclick = "makeEdit()" class = "editButt" id = "allow" style = "display: none; font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> SAVE </center></button>
     
-    <button onclick = "makeNoEdit()" onclick= "opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
+    <button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
     
     <th  style = "width: 10%"><button onclick = "remContact()" class = "delButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> DELETE</button> </center></th>
   </tr>
