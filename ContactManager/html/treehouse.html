@@ -185,7 +185,7 @@
     
     <th  style = "width: 10%"><center> <button onclick = "makeEdit()" class = "editButt" id = "allow" style = "display: none; font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> SAVE </center></button>
     
-    <button onclick = "makeNoEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
+    <button onclick = "makeNoEdit()" onclick = "opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
     
     <th  style = "width: 10%"><button onclick = "remContact()" class = "delButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> DELETE</button> </center></th>
   </tr>
@@ -329,6 +329,9 @@ function remContact() {
     }
 	
 function closeEdit() {
+        document.getElementById("editPop").style.display = "none";
+    }
+function opEdit() {
         document.getElementById("editPop").style.display = "block";
     }
 	
