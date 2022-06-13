@@ -1,59 +1,3 @@
-
-<div class = "delPop" id = "delPopUp">
-<div class = "delCon">
-<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete your profile?</div>
-<br>
-<button onclick= "closeDelPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
-
-<button onclick= "doDeleteUser()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
-<span id="deleteUserResult"></span>
-</div>
-</div>
-
-<div class = "delPop" id = "remPopUp">
-<div class = "delCon">
-<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete this contact?</div>
-<br>
-<button onclick= "closeRemPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
-
-<button onclick= "doDeleteContact()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
-</div>
-</div>
-
-<div class = "delPop" id = "editPop">
-<div class = "delCon">
-<div style = " font-family: 'Josefin Sans', sans-serif;">
-
-  <center><form style = "width: 50%">
-    <label for="first_nameEC">Contact's First Name</label> <br>
-    <input type="text" id="first_nameEC" name="first_nameEC" placeholder="First Name..."> <br><br>
-
-    <label for="last_nameEC">Contact's Last Name</label> <br>
-    <input type="text" id="last_nameEC" name="last_nameEC" placeholder="Last Name..."> <br><br>
-
-    <label for="phone_numEC">Contact's Phone Number</label> <br>
-    <input type="tel" id="phone_numEC" name="phone_numEC" placeholder="Phone Number..."> <br><br>
-    
-    <label for="emailEC">Contact's E-mail</label> <br>
-    <input type="email" id="emailEC" name="emailEC" placeholder="Email..."> <br><br>
-    
-    <label for="addressEC">Contact's Address</label> <br>
-    <input type="text" id="addressEC" name="addressEC" placeholder="Address..."> <br><br>
-<br>
-<input onclick = "doEditContact()" type="submit" value = "CONFIRM " style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer">
-
-<button onclick= "getNav()" style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
-   
-</center>
-</form>
-</center>   
-</div>
-<br>
-</div>
-</div>
-
-
-
 <?php
 include("DB_connections.php");
 session_start();
@@ -107,8 +51,10 @@ if (isset($_POST['input'])) {
                         <td><?php echo $phone_num; ?></td>
 			<td><?php echo $email; ?></td>
                         <td><?php echo $address; ?></td>
+			<td Style="Display:none"><?php echo $contact_id?><td>
 			<td><button class="button" onclick="opEdit()">EDIT</button></td>
-		  	<td><button class="button" onclick="remContact()">DELETE</button></td>                    </tr>
+		  	<td><button class="button" onclick="remContact()">DELETE</button></td>
+		    </tr>
                     <?php } ?>
                 </tbody>
             </table>
@@ -243,6 +189,112 @@ if (isset($_POST['input'])) {
         }
     }
 </script>
+<div class = "delPop" id = "delPopUp">
+<div class = "delCon">
+<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete your profile?</div>
+<br>
+<button onclick= "closeDelPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
+
+<button onclick= "doDeleteUser()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
+<span id="deleteUserResult"></span>
+</div>
+</div>
+
+<div class = "delPop" id = "remPopUp">
+<div class = "delCon">
+<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete this contact?</div>
+<br>
+<button onclick= "closeRemPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
+
+<button onclick= "doDeleteContact()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
+</div>
+</div>
+
+<div class = "delPop" id = "editPop">
+<div class = "delCon">
+<div style = " font-family: 'Josefin Sans', sans-serif;">
+
+  <center><form style = "width: 50%">
+    <label for="first_nameEC">Contact's First Name</label> <br>
+    <input type="text" id="first_nameEC" name="first_nameEC" placeholder="First Name..."> <br><br>
+
+    <label for="last_nameEC">Contact's Last Name</label> <br>
+    <input type="text" id="last_nameEC" name="last_nameEC" placeholder="Last Name..."> <br><br>
+
+    <label for="phone_numEC">Contact's Phone Number</label> <br>
+    <input type="tel" id="phone_numEC" name="phone_numEC" placeholder="Phone Number..."> <br><br>
+    
+    <label for="emailEC">Contact's E-mail</label> <br>
+    <input type="email" id="emailEC" name="emailEC" placeholder="Email..."> <br><br>
+    
+    <label for="addressEC">Contact's Address</label> <br>
+    <input type="text" id="addressEC" name="addressEC" placeholder="Address..."> <br><br>
+<br>
+<input onclick = "doEditContact()" type="submit" value = "CONFIRM " style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer">
+
+<button onclick= "getNav()" style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
+   
+</center>
+</form>
+</center>   
+</div>
+<br>
+</div>
+</div>
+
+		
+		<div class = "delPop" id = "delPopUp">
+<div class = "delCon">
+<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete your profile?</div>
+<br>
+<button onclick= "closeDelPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
+
+<button onclick= "doDeleteUser()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
+<span id="deleteUserResult"></span>
+</div>
+</div>
+
+<div class = "delPop" id = "remPopUp">
+<div class = "delCon">
+<div style = "font-size: 20px; font-family: 'Josefin Sans', sans-serif;">Are you sure want to delete this contact?</div>
+<br>
+<button onclick= "closeRemPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
+
+<button onclick= "doDeleteContact()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
+</div>
+</div>
+
+<div class = "delPop" id = "editPop">
+<div class = "delCon">
+<div style = " font-family: 'Josefin Sans', sans-serif;">
+
+  <center><form style = "width: 50%">
+    <label for="first_nameEC">Contact's First Name</label> <br>
+    <input type="text" id="first_nameEC" name="first_nameEC" placeholder="First Name..."> <br><br>
+
+    <label for="last_nameEC">Contact's Last Name</label> <br>
+    <input type="text" id="last_nameEC" name="last_nameEC" placeholder="Last Name..."> <br><br>
+
+    <label for="phone_numEC">Contact's Phone Number</label> <br>
+    <input type="tel" id="phone_numEC" name="phone_numEC" placeholder="Phone Number..."> <br><br>
+    
+    <label for="emailEC">Contact's E-mail</label> <br>
+    <input type="email" id="emailEC" name="emailEC" placeholder="Email..."> <br><br>
+    
+    <label for="addressEC">Contact's Address</label> <br>
+    <input type="text" id="addressEC" name="addressEC" placeholder="Address..."> <br><br>
+<br>
+<input onclick = "doEditContact()" type="submit" value = "CONFIRM " style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer">
+
+<button onclick= "getNav()" style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
+   
+</center>
+</form>
+</center>   
+</div>
+<br>
+</div>
+</div>
 
 </html>
 
