@@ -96,14 +96,13 @@
   <div class = "sidenav1" id= "sidenav1">
   <left>
   <h style = "font-family: 'Pacifico', cursive; text-align: center; font-size: 4vw; width: 50%; user-select: none;"> &nbspTreehouse</h>
-  <br>
+  
   
   <div class="searchBar">
-    <input type="text" class="form-control" id="live-search" autocomplete="off" placeholder="Search Contacts" style="border: 0 none">
+    <input type="text" class="form-control" id="live-search" autocomplete="off" placeholder="Search Contacts" style="border: 0 none; height: 25px">
   </div>
+  <button class = "button" onclick= "getProfile()" style="width: 50%; padding: 3px 0px">Update Profile</button>
   <br>
-  <button class = "button" onclick= "getProfile()" style="width: 50%">Update Profile</button>
-<br>
   <button class = "button" onclick= "getForm()" style="width: 50%">Add New Contact</button>
   <br>
   <button class = "button" onclick = "doLogout()" style="width: 50%">Logout</button>
@@ -197,8 +196,8 @@
     
 <table id = "actions">
   <tr>
-    <th style = "width: 70%"></th>
-    <th style = "width: 10%"><button onclick = "GetSelected()"> test </button></th>
+    <th style = "width: 80%"></th>
+    
     <th  style = "width: 10%"><center> <button onclick = "makeEdit()" class = "editButt" id = "allow" style = "display: none; font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> SAVE </center></button>
     
     <button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
@@ -244,6 +243,11 @@
   }
 </script>
 
+	<script>
+		let firstNameTest = "";
+	</script>
+
+
 <?php
 $username = $_SESSION['username'];
 
@@ -274,15 +278,19 @@ if (mysqli_num_rows($result) > 0) { ?>
                   $email = $row['email'];
                   $address = $row['address'];
           ?>
-
+	<script>
+		firstNameTest = <?php echo $firstName;?>;
+	</script>
           <tbody>
               <tr>
                   <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
-                  <td><?php echo $firstName; ?></td>
+                  <td><?php echo $firstName;?></td>
                   <td><?php echo $lastName; ?></td>
                   <td><?php echo $email; ?></td>
                   <td><?php echo $address; ?></td>
-                  <td> <input type="checkbox"/> </td>
+		<td><button class="button" onclick="testingEditButton()">EDIT</button><td>
+                  <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px"><button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
+    </td>
               </tr>
               <?php } ?>
           </tbody>
@@ -325,6 +333,96 @@ if (mysqli_num_rows($result) > 0) { ?>
 
 </div>
   <!-- end table of contacts -->
+	<script>
+	// var firstNameVal = "";	
+	function doDeleteContact()
+  { 
+    readCookie();
+
+    first_nameDC = firstName;
+    last_nameDC = lastName;
+    emailDC = email;
+    addressDC = address;
+
+    console.log(first_nameDC);
+    let user_id = idCookie;
+    
+    console.log(idCookie);
+    //document.getElementById("deleteContactResult").innerHTML = "";
+
+    let tmp = {user_id:user_id, first_nameDC:first_nameDC, last_nameDC:last_nameDC, addressDC:addressDC};
+
+    var jsonPayload = JSON.stringify( tmp );
+    
+    let url = 'http://cop4331-8.xyz/API/DeleteContact.php';
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try
+    {
+      xhr.onreadystatechange = function() 
+      {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+          // let jsonObject = JSON.parse( xhr.responseText );
+          
+          // if( userId < 1 )
+          // {   
+          //   document.getElementById("deleteContactResult").innerHTML = "User/Password combination incorrect";
+          //   return;
+          // }
+
+          //window.location.href = "treehouse.php";
+        }
+      };
+      xhr.send(jsonPayload);
+    }
+    catch(err)
+    {
+      //document.getElementById("deleteContactResult").innerHTML = err.message;
+    }
+  }
+
+  function readCookie()
+{
+  idCookie = -1;
+  let data = document.cookie;
+  let splits = data.split(";");
+  for(var i = 0; i < splits.length; i++) 
+  {
+    let thisOne = splits[i].trim();
+    let tokens = thisOne.split("=");
+    
+    if( tokens[0] == "idCookie" )
+    {
+      idCookie = parseInt( tokens[1].trim() );
+    }
+  }
+  
+  if( idCookie < 0 )
+  {
+    window.location.href = "index.html";
+  }
+  else
+  {
+    // document.getElementById("username").innerHTML = "Logged in as " + firstName + " " + lastName;
+  }
+}
+
+	function testingEditButton(value){
+		$("#contacts tr").click(function(){
+   	$(this).addClass('selected').siblings().removeClass('selected');    
+   	firstName =$(this).find('td:nth-child(2)').html();
+    console.log(firstName);
+		lastName =$(this).find('td:nth-child(3)').html();
+		email =$(this).find('td:nth-child(4)').html();
+		address =$(this).find('td:nth-child(5)').html();
+   	console.log("First Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "\nAddress: " + address);
+    doDeleteContact();   
+		});
+	}
+	</script>
 
   </div>
   <div class="column3" >
@@ -453,30 +551,6 @@ function addContactToTable() {
   cell1.innerHTML = "NEW CELL1";
   cell2.innerHTML = "NEW CELL2";
 }
-  
-    function GetSelected() {
-        var grid = document.getElementById(contacts");
-        var checkBoxes = grid.getElementsByTagName("INPUT");
-        var message = "Id Name                  Country\n";
-        var temp = "";
-        for (var i = 0; i < checkBoxes.length; i++) {
-            if (checkBoxes[i].checked) {
-                var row = checkBoxes[i].parentNode.parentNode;
-                message += row.cells[1].innerHTML;
-                message += "   " + row.cells[2].innerHTML;
-                message += "   " + row.cells[3].innerHTML;
-                message += "\n";
-                //document.getElementById("Table1").deleteRow(i+1);
-                var temp = i + 1;
-            }
-        }
- 
-        //Display selected Row data in Alert Box.
-        alert(message);
-        alert(temp);
-        return temp;
-        
-    }
 
 function closeEdit() {
         document.getElementById("editPop").style.display = "none";
