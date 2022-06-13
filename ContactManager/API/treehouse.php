@@ -65,9 +65,9 @@
     <label for="addressEC">Address</label> <br>
     <input type="text" id="addressEC" name="addressEC" placeholder="Your address.."> <br><br>
 <br>
-<input onclick = "editButton()" type="submit" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
+<input onclick = "editButton()" type="submit" value = "CONFIRM " style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
 
-<button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
+<button onclick= "getNav()" style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
    
 </center>
 </form>
