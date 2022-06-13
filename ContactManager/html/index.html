@@ -108,31 +108,44 @@ color: #000;
 
   <h style = "font-family: 'Pacifico', cursive; text-align: center; font-size: 4vw; width: 50%"> &nbspTreehouse</h>
   <br>
-  <label style = "font-size: 10px">•contact management application•</label>
+  <label style = "font-size: 10px">Contact Management Application</label>
 
 <div id="log">
-<form action="/action_page.php" style = "top:50%;">
-  <label for="fname">Username</label><br>
-  <input type="text" id="fname" name="fname" palceholder="" style = "border: 0px;"><br>
-  <label for="lname">Password</label><br>
-  <input type="text" id="lname" name="lname" placeholder="" style = "border: 0px;">
+<form onsubmit = "return false", style = "top:50%;">
+  <label for="username">Username</label><br>
+  <input type="text" id="username" name="username" palceholder="" style = "border: 0px;"><br>
+  <label for="password">Password</label><br>
+  <input type="password" id="password" name="password" placeholder="" style = "border: 0px;">
   <br>
   <br>
-  <input type="submit"style ="background: linear-gradient(to right,#6fc80f,#86d72f); color: white; border: 0px; height: 20px; width: 50px;"  value="log-in">
-  <br>
+  <input type="submit" onclick = "doLogin()" style ="background: linear-gradient(to right,#6fc80f,#86d72f); color: white; border: 0px; height: 20px; width: 50px;"  value="log-in">
+
+  <p><span id="loginResult"></span></p>
+
 </form>
 <label style = "font-size: 12px">need an account?</label><button style = "font-size: 12px; background-color: transparent; border: 0px; color:#86d72f;  " onclick="signFunction()">sign-up!</button>
 </div>
 
 <div id="sign">
-<form action="/action_page.php">
-  <label for="fname">Username</label><br>
-  <input type="text" id="fname" name="fname" palceholder="" style = "border: 0px;"><br>
-  <label for="lname">Password</label><br>
-  <input type="text" id="lname" name="lname" placeholder="" style = "border: 0px;">
+<form>
+  <label for="usernameR">Username</label><br>
+  <input type="text" id="usernameR" name="usernameR" palceholder="" style = "border: 0px;" required><br>
+  <label for="passwordR">Password</label><br>
+  <input type="password" id="passwordR" name="passwordR" placeholder="" style = "border: 0px;" required>
   <br>
+  <label for="first_nameR">First Name</label><br>
+  <input type="text" id="first_nameR" name="first_nameR" palceholder="" style = "border: 0px;" required><br>
+  <label for="last_nameR">Last Name</label><br>
+  <input type="text" id="last_nameR" name="last_nameR" palceholder="" style = "border: 0px;" required><br>
+  <label for="phone_numR">Phone</label><br>
+  <input type="text" id="phone_numR" name="phone_numR" palceholder="" style = "border: 0px;" required><br>
+  <label for="emailR">Email</label><br>
+  <input type="email" id="emailR" name="emailR" palceholder="" style = "border: 0px;" required><br>
+  <label for="addressR">Address</label><br>
+  <input type="text" id="addressR" name="addressR" palceholder="" style = "border: 0px;" required><br>
   <br>
-  <input type="submit"style ="background: linear-gradient(to right,#de1a18,#f8312f); color: white; border: 0px; height: 20px; width: 70px;"  value="sign-up">
+  <input type="submit" onclick = "doRegister()" style ="background: linear-gradient(to right,#de1a18,#f8312f); color: white; border: 0px; height: 20px; width: 70px;"  value="sign-up">
+  <span id="registerResult"></span>
   <br>
 </form>
 <label style = "font-size: 12px">already have an account?</label><button style = "font-size: 12px; background-color: transparent; border: 0px; color:#f8312f;  " onclick="logFunction()">log-in!</button>
@@ -163,6 +176,137 @@ function logFunction() {
     y.style.display = "block";
   }
 }
+
+function doLogin()
+{
+  idCookie = 0;
+  // firstName = "";
+  // lastName = "";
+  
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  
+  document.getElementById("loginResult").innerHTML = "";
+
+  let tmp = {username:username,password:password};
+
+  var jsonPayload = JSON.stringify( tmp );
+  
+  let url = 'http://cop4331-8.xyz/API/Login.php';
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+  try
+  {
+    xhr.onreadystatechange = function() 
+    {
+      if (this.readyState == 4 && this.status == 200) 
+      {
+        let jsonObject = JSON.parse( xhr.responseText );
+        id = jsonObject.id;
+    
+        if( id < 1 )
+        {   
+          document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+          return;
+        }
+
+        saveCookie();
+  
+        window.location.href = "treehouse.php";
+      }
+    };
+    xhr.send(jsonPayload);
+  }
+  catch(err)
+  {
+    document.getElementById("loginResult").innerHTML = err.message;
+  }
+}
+
+function saveCookie()
+{
+  let minutes = 20;
+  let date = new Date();
+  date.setTime(date.getTime()+(minutes*60*1000)); 
+  document.cookie = "idCookie=" + id + ";expires=" + date.toGMTString(); 
+}
+
+function readCookie()
+{
+  idCookie = -1;
+  let data = document.cookie;
+  let splits = data.split(";");
+  for(var i = 0; i < splits.length; i++) 
+  {
+    let thisOne = splits[i].trim();
+    let tokens = thisOne.split("=");
+    
+    if( tokens[0] == "idCookie" )
+    {
+      idCookie = parseInt( tokens[1].trim() );
+    }
+  }
+  
+  if( idCookie < 0 )
+  {
+    window.location.href = "index.html";
+  }
+  else
+  {
+    // document.getElementById("username").innerHTML = "Logged in as " + firstName + " " + lastName;
+  }
+}
+
+function doRegister()
+{ 
+  let username = document.getElementById("usernameR").value;
+  let password = document.getElementById("passwordR").value;
+  let first_name = document.getElementById("first_nameR").value;
+  let last_name = document.getElementById("last_nameR").value;
+  let phone_num = document.getElementById("phone_numR").value;
+  let email = document.getElementById("emailR").value;
+  let address = document.getElementById("addressR").value;
+  
+  document.getElementById("registerResult").innerHTML = "";
+
+  let tmp = {username:username,password:password,first_name:first_name,last_name:last_name,phone_num:phone_num,email:email,address:address};
+
+  var jsonPayload = JSON.stringify( tmp );
+
+  let url = 'http://cop4331-8.xyz/API/Register.php';
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+  try
+  {
+    xhr.onreadystatechange = function() 
+    {
+      if (this.readyState == 4 && this.status == 200) 
+      {
+        let jsonObject = JSON.parse( xhr.responseText );
+        uid = jsonObject.id;
+        console.log(uid);
+
+        if( uid > 0 )
+        {   
+          document.getElementById("registerResult").innerHTML = "User Already Exists";
+          return;
+        }
+
+        window.location.href = "index.html";
+      }
+    };
+    xhr.send(jsonPayload);
+  }
+  catch(err)
+  {
+    document.getElementById("loginResult").innerHTML = err.message;
+  }
+}
+
 </script>
    
 </body>
