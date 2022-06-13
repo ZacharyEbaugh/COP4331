@@ -49,26 +49,23 @@
 <div class = "delCon">
 <div style = " font-family: 'Josefin Sans', sans-serif;">
 
-  <center><form action="" style = "width: 50%">
-      <label for="fname">Username</label> <br>
-    <input type="text" id="first_nameCon" name="firstname" placeholder="Your username.."> <br><br>
-    
-    <label for="fname">First Name</label> <br>
-    <input type="text" id="first_nameCon" name="firstname" placeholder="Your first name.."> <br><br>
+  <center><form style = "width: 50%">
+    <label for="first_nameEC">First Name</label> <br>
+    <input type="text" id="first_nameEC" name="first_nameEC" placeholder="Your first name.."> <br><br>
 
-    <label for="lname">Last Name</label> <br>
-    <input type="text" id="last_nameCon" name="lastname" placeholder="Your last name.."> <br><br>
+    <label for="last_nameEC">Last Name</label> <br>
+    <input type="text" id="last_nameEC" name="last_nameEC" placeholder="Your last name.."> <br><br>
 
-    <label for="phone">Phone number</label> <br>
-    <input type="tel" id="phone_numCon" name="phone_num" placeholder="Your phone number.."> <br><br>
+    <label for="phone_numEC">Phone number</label> <br>
+    <input type="tel" id="phone_numEC" name="phone_numEC" placeholder="Your phone number.."> <br><br>
     
-    <label for="e-mail">E-mail</label> <br>
-    <input type="email" id="emailCon" name="email" placeholder="Your email.."> <br><br>
+    <label for="emailEC">E-mail</label> <br>
+    <input type="email" id="emailEC" name="emailEC" placeholder="Your email.."> <br><br>
     
-        <label for="address">Address</label> <br>
-    <input type="text" id="addressCon" name="address" placeholder="Your address.."> <br><br>
+    <label for="addressEC">Address</label> <br>
+    <input type="text" id="addressEC" name="addressEC" placeholder="Your address.."> <br><br>
 <br>
-<input type="submit" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
+<input onclick = "editButton()" type="submit" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
 
  <button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
    
@@ -193,19 +190,6 @@
   <div class="column2" >
     <br>
     
-    
-<table id = "actions">
-  <tr>
-    <th style = "width: 80%"></th>
-    
-    <th  style = "width: 10%"><center> <button onclick = "makeEdit()" class = "editButt" id = "allow" style = "display: none; font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> SAVE </center></button>
-    
-    <button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
-    
-    <th  style = "width: 10%"><button onclick = "remContact()" class = "delButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> DELETE</button> </center></th>
-  </tr>
-</table>
-
  <br>
   <!-- table of contacts -->
   <div class = "">
@@ -270,40 +254,26 @@ if (mysqli_num_rows($result) > 0) { ?>
 
           if (mysqli_num_rows($result) > 0) {
               while ($row = mysqli_fetch_assoc($result)) {
-
+		  $contact_id = $row['contact_id'];
                   $username = $row['username'];
                   $password = $row['password'];
                   $firstName = $row['first_name'];
                   $lastName = $row['last_name'];
+		  $phone_num = $row['phone_num'];
                   $email = $row['email'];
                   $address = $row['address'];
-		  $phone = $row['phone_num'];
-		  $contactID = $row['contact_id'];
           ?>
-	<script>
-		firstNameTest = <?php echo $firstName;?>;
-	</script>
-	      
-	      <tr>
-		      <th> Profile </th>   
-		      <th> First Name </th>   
-		      <th> Last Name</th>   
-		      <th> Phone </th>   
-		      <th> E-mail </th>   
-		      <th> Address </th>   
-		      <th> Action </th>
-	      </tr>
           <tbody>
               <tr>
                   <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
                   <td><?php echo $firstName;?></td>
                   <td><?php echo $lastName; ?></td>
-		  <td><?php echo $phone; ?></td>
                   <td><?php echo $email; ?></td>
+		  <td><?php echo $phone_num; ?></td>
                   <td><?php echo $address; ?></td>
-		  <td><button class="button" onclick="testingEditButton()">EDIT</button><td>
-		  <td style = "display: hidden"> <?php echo $contactID; ?> </>
- 
+                  <td style="Display:none"><?php echo $contact_id; ?></td>
+		  <td><button class="button" onclick="opEdit()">EDIT</button></td>
+		  <td><button class="button" onclick="deleteButton()">DELETE</button></td>
               </tr>
               <?php } ?>
           </tbody>
@@ -350,20 +320,13 @@ if (mysqli_num_rows($result) > 0) { ?>
 	// var firstNameVal = "";	
 	function doDeleteContact()
   { 
-    readCookie();
-
-    first_nameDC = firstName;
-    last_nameDC = lastName;
-    emailDC = email;
-    addressDC = address;
-
-    console.log(first_nameDC);
-    let user_id = idCookie;
     
-    console.log(idCookie);
+    // contact_id = contact_idDC;
+    
+    console.log(contact_id);
     //document.getElementById("deleteContactResult").innerHTML = "";
 
-    let tmp = {user_id:user_id, first_nameDC:first_nameDC, last_nameDC:last_nameDC, addressDC:addressDC};
+    let tmp = {contact_id:contact_id};
 
     var jsonPayload = JSON.stringify( tmp );
     
@@ -397,6 +360,56 @@ if (mysqli_num_rows($result) > 0) { ?>
     }
   }
 
+function doEditContact()
+{ 
+  readCookie();
+
+  let contact_id = contact_idEC;
+  let user_id = idCookie;
+  let first_name = document.getElementById("first_nameEC").value;
+  let last_name = document.getElementById("last_nameEC").value;
+  let phone_num = document.getElementById("phone_numEC").value;
+  let email = document.getElementById("emailEC").value;
+  let address = document.getElementById("addressEC").value;
+  
+  //console.log(contact_id);
+  console.log(first_name);
+  document.getElementById("editContactResult").innerHTML = "";
+
+  let tmp = {contact_id:contact_id,user_id:user_id,first_name:first_name,last_name:last_name,phone_num:phone_num,email:email,address:address};
+
+  var jsonPayload = JSON.stringify( tmp );
+  
+  let url = 'http://cop4331-8.xyz/API/EditContact.php';
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+  try
+  {
+    xhr.onreadystatechange = function() 
+    {
+      if (this.readyState == 4 && this.status == 200) 
+      {
+        // let jsonObject = JSON.parse( xhr.responseText );
+
+        // if( userId < 1 )
+        // {   
+        //   document.getElementById("editContactResult").innerHTML = "User/Password combination incorrect";
+        //   return;
+        // }
+
+        //window.location.href = "treehouse.php";
+      }
+    };
+    xhr.send(jsonPayload);
+  }
+  catch(err)
+  {
+    document.getElementById("editContactResult").innerHTML = err.message;
+  }
+}
+
   function readCookie()
 {
   idCookie = -1;
@@ -423,15 +436,27 @@ if (mysqli_num_rows($result) > 0) { ?>
   }
 }
 
-	function testingEditButton(value){
+	function editButton(){
+		$("#contacts tr").click(function(){
+    $(this).addClass('selected').siblings().removeClass('selected'); 
+    contact_id=$(this).find('td:nth-child(7)').html();
+		contact_idEC = contact_id;
+		console.log(contact_idEC);
+    doEditContact();
+    });
+	}
+
+	function deleteButton(){
 		$("#contacts tr").click(function(){
    	$(this).addClass('selected').siblings().removeClass('selected');    
    	firstName =$(this).find('td:nth-child(2)').html();
-    console.log(firstName);
 		lastName =$(this).find('td:nth-child(3)').html();
 		email =$(this).find('td:nth-child(4)').html();
-		address =$(this).find('td:nth-child(5)').html();
-   	console.log("First Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "\nAddress: " + address);
+		phone_num =$(this).find('td:nth-child(5)').html();
+		address =$(this).find('td:nth-child(6)').html();
+		contact_id=$(this).find('td:nth-child(7)').html();
+		contact_idDC = contact_id;
+   	console.log("First Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "\nAddress: " + address + "\nPhone Number: " + phone_num + "\ncontact_id: " + contact_id);
     doDeleteContact();   
 		});
 	}
