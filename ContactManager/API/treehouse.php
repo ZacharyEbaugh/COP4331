@@ -49,7 +49,7 @@
 <div class = "delCon">
 <div style = " font-family: 'Josefin Sans', sans-serif;">
 
-  <center><form style = "width: 50%">
+  <center><form action = "" style = "width: 50%">
     <label for="first_nameEC">First Name</label> <br>
     <input type="text" id="first_nameEC" name="first_nameEC" placeholder="Your first name.."> <br><br>
 
@@ -67,7 +67,7 @@
 <br>
 <input onclick = "editButton()" type="submit" value = "CONFIRM " style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
 
- <button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
+<button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
    
 </center>
 </form>
@@ -263,6 +263,17 @@ if (mysqli_num_rows($result) > 0) { ?>
                   $email = $row['email'];
                   $address = $row['address'];
           ?>
+
+          <tr>
+            <th> Profile </th>   
+            <th> First Name </th>   
+            <th> Last Name</th>   
+            <th> Phone </th>   
+            <th> E-mail </th>   
+            <th> Address </th>   
+            <th> Edit </th>
+            <th> Delete </th>
+          </tr>
           <tbody>
               <tr>
                   <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
@@ -364,7 +375,7 @@ function doEditContact()
 { 
   readCookie();
 
-  let contact_id = contact_idEC;
+  // let contact_id = contact_idEC;
   let user_id = idCookie;
   let first_name = document.getElementById("first_nameEC").value;
   let last_name = document.getElementById("last_nameEC").value;
@@ -372,9 +383,13 @@ function doEditContact()
   let email = document.getElementById("emailEC").value;
   let address = document.getElementById("addressEC").value;
   
-  //console.log(contact_id);
+  console.log(contact_id);
+  console.log(contact_id);
+  console.log(contact_id);
+  console.log(contact_id);
+  console.log(contact_id);
   console.log(first_name);
-  document.getElementById("editContactResult").innerHTML = "";
+  //document.getElementById("editContactResult").innerHTML = "";
 
   let tmp = {contact_id:contact_id,user_id:user_id,first_name:first_name,last_name:last_name,phone_num:phone_num,email:email,address:address};
 
@@ -406,7 +421,7 @@ function doEditContact()
   }
   catch(err)
   {
-    document.getElementById("editContactResult").innerHTML = err.message;
+    //document.getElementById("editContactResult").innerHTML = err.message;
   }
 }
 
@@ -437,6 +452,7 @@ function doEditContact()
 }
 
 	function editButton(){
+    
 		$("#contacts tr").click(function(){
     $(this).addClass('selected').siblings().removeClass('selected'); 
     contact_id=$(this).find('td:nth-child(7)').html();
