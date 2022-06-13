@@ -277,20 +277,33 @@ if (mysqli_num_rows($result) > 0) { ?>
                   $lastName = $row['last_name'];
                   $email = $row['email'];
                   $address = $row['address'];
+		  $phone = $row['phone_num'];
+		  $contactID = $row['contact_id'];
           ?>
 	<script>
 		firstNameTest = <?php echo $firstName;?>;
 	</script>
+	      
+	      <tr>
+		      <th> Profile </th>   
+		      <th> First Name </th>   
+		      <th> Last Name</th>   
+		      <th> Phone </th>   
+		      <th> E-mail </th>   
+		      <th> Address </th>   
+		      <th> Action </th>
+	      </tr>
           <tbody>
               <tr>
                   <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
                   <td><?php echo $firstName;?></td>
                   <td><?php echo $lastName; ?></td>
+		  <td><?php echo $phone; ?></td>
                   <td><?php echo $email; ?></td>
                   <td><?php echo $address; ?></td>
-		<td><button class="button" onclick="testingEditButton()">EDIT</button><td>
-                  <td style="font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 25px"><button onclick = "makeNoEdit(); opEdit()" class = "editButt" id = "dontAllow" style = "font-family: 'Noto Emoji', sans-serif; font-weight: bold; font-size: 15px;"> <center> EDIT</center></button> </th>
-    </td>
+		  <td><button class="button" onclick="testingEditButton()">EDIT</button><td>
+		  <td style = "display: hidden"> <?php echo $contactID; ?> </>
+ 
               </tr>
               <?php } ?>
           </tbody>
