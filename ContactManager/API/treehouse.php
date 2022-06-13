@@ -41,7 +41,7 @@
 <br>
 <button onclick= "closeRemPop()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
 
-<button onclick= "getNav()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
+<button onclick= "doDeleteContact()" style = "width: 25%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CONFIRM </button>
 </div>
 </div>
 
@@ -49,25 +49,25 @@
 <div class = "delCon">
 <div style = " font-family: 'Josefin Sans', sans-serif;">
 
-  <center><form action = "" style = "width: 50%">
-    <label for="first_nameEC">First Name</label> <br>
-    <input type="text" id="first_nameEC" name="first_nameEC" placeholder="Your first name.."> <br><br>
+  <center><form style = "width: 50%">
+    <label for="first_nameEC">Contact's First Name</label> <br>
+    <input type="text" id="first_nameEC" name="first_nameEC" placeholder="First Name..."> <br><br>
 
-    <label for="last_nameEC">Last Name</label> <br>
-    <input type="text" id="last_nameEC" name="last_nameEC" placeholder="Your last name.."> <br><br>
+    <label for="last_nameEC">Contact's Last Name</label> <br>
+    <input type="text" id="last_nameEC" name="last_nameEC" placeholder="Last Name..."> <br><br>
 
-    <label for="phone_numEC">Phone number</label> <br>
-    <input type="tel" id="phone_numEC" name="phone_numEC" placeholder="Your phone number.."> <br><br>
+    <label for="phone_numEC">Contact's Phone Number</label> <br>
+    <input type="tel" id="phone_numEC" name="phone_numEC" placeholder="Phone Number..."> <br><br>
     
-    <label for="emailEC">E-mail</label> <br>
-    <input type="email" id="emailEC" name="emailEC" placeholder="Your email.."> <br><br>
+    <label for="emailEC">Contact's E-mail</label> <br>
+    <input type="email" id="emailEC" name="emailEC" placeholder="Email..."> <br><br>
     
-    <label for="addressEC">Address</label> <br>
-    <input type="text" id="addressEC" name="addressEC" placeholder="Your address.."> <br><br>
+    <label for="addressEC">Contact's Address</label> <br>
+    <input type="text" id="addressEC" name="addressEC" placeholder="Address..."> <br><br>
 <br>
-<input onclick = "editButton()" type="submit" value = "CONFIRM " style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;">
+<input onclick = "doEditContact()" type="submit" value = "CONFIRM " style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#74b9c8,#4c98ab); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer">
 
-<button onclick= "getNav()" style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif;"> CANCEL </button>
+<button onclick= "getNav()" style = "width: 50%; height: 40px; font-size: 20px; background: linear-gradient(to right,#e9344a, #f97c71); border: 0px; color: white; border-radius: 5px; font-family: 'Josefin Sans', sans-serif; cursor: pointer"> CANCEL </button>
    
 </center>
 </form>
@@ -117,20 +117,20 @@
   <center><img style = "width: 100px" src = "https://64.media.tumblr.com/508b7edacc0a950d1273f0466499accf/88f42c71fa566fc3-fa/s2048x3072/897db133d51bc7617aa9cb909650cbb6fd11b3f6.pnj"> </center>
 
   <form onsubmit="return false">
-    <label for="first_nameAC">First Name</label>
-    <input type="text" id="first_nameAC" name="first_nameAC" placeholder="First name...">
+    <label for="first_nameAC">Contact's First Name</label>
+    <input type="text" id="first_nameAC" name="first_nameAC" placeholder="First Name...">
 
-    <label for="last_nameAC">Last Name</label>
-    <input type="text" id="last_nameAC" name="last_nameAC" placeholder="Last name...">
+    <label for="last_nameAC">Contact's Last Name</label>
+    <input type="text" id="last_nameAC" name="last_nameAC" placeholder="Last Name...">
 
-    <label for="phone_numAC">Phone number</label>
-    <input type="tel" id="phone_numAC" name="phone_numAC" placeholder="Phone number..">
+    <label for="phone_numAC">Contact's Phone number</label>
+    <input type="tel" id="phone_numAC" name="phone_numAC" placeholder="Phone Number...">
     
-    <label for="emailAC">E-mail</label>
-    <input type="email" id="emailAC" name="emailAC" placeholder="Contact's email..">
+    <label for="emailAC">Contact's E-mail</label>
+    <input type="email" id="emailAC" name="emailAC" placeholder="Email...">
     
-    <label for="addressAC">Address</label>
-    <input type="text" id="addressAC" name="addressAC" placeholder="Contact's address..">
+    <label for="addressAC">Contact's Address</label>
+    <input type="text" id="addressAC" name="addressAC" placeholder="Address...">
   
     <center>  <input type="submit" onclick = "doAddContact()" value="SAVE" style = "width: 100%; font-family: 'Noto Emoji', sans-serif;" >
     <span id="addContactResult"></span>
@@ -279,12 +279,12 @@ if (mysqli_num_rows($result) > 0) { ?>
                   <td><img style="width: 100px" src="https://64.media.tumblr.com/f6f345984b07c36fad0d98a149fcf547/fb078ec2c942b531-79/s2048x3072/d31315a0c864dbae0d5ce108db5aeecea0b2a8d7.pnj"></td>
                   <td><?php echo $firstName;?></td>
                   <td><?php echo $lastName; ?></td>
-                  <td><?php echo $email; ?></td>
-		  <td><?php echo $phone_num; ?></td>
+                  <td><?php echo $phone_num; ?></td>  
+		              <td><?php echo $email; ?></td>
                   <td><?php echo $address; ?></td>
                   <td style="Display:none"><?php echo $contact_id; ?></td>
-		  <td><button class="button" onclick="opEdit()">EDIT</button></td>
-		  <td><button class="button" onclick="deleteButton()">DELETE</button></td>
+		              <td><button class="button" onclick="opEdit()">EDIT</button></td>
+		              <td><button class="button" onclick="remContact()">DELETE</button></td>
               </tr>
               <?php } ?>
           </tbody>
@@ -360,7 +360,7 @@ if (mysqli_num_rows($result) > 0) { ?>
           //   return;
           // }
 
-          //window.location.href = "treehouse.php";
+          window.location.href = "treehouse.php";
         }
       };
       xhr.send(jsonPayload);
@@ -375,6 +375,7 @@ function doEditContact()
 { 
   readCookie();
 
+
   // let contact_id = contact_idEC;
   let user_id = idCookie;
   let first_name = document.getElementById("first_nameEC").value;
@@ -383,7 +384,8 @@ function doEditContact()
   let email = document.getElementById("emailEC").value;
   let address = document.getElementById("addressEC").value;
   
-  console.log(contact_id);
+  console.log(idCookie);
+  //console.log("pog" + contact_idEC);
   console.log(contact_id);
   console.log(contact_id);
   console.log(contact_id);
@@ -414,7 +416,7 @@ function doEditContact()
         //   return;
         // }
 
-        //window.location.href = "treehouse.php";
+        window.location.href = "treehouse.php";
       }
     };
     xhr.send(jsonPayload);
@@ -595,6 +597,13 @@ function closeRemPop(){
     }
     
 function remContact() {
+        $("#contacts tr").click(function(){
+        $(this).addClass('selected').siblings().removeClass('selected'); 
+        contact_id=$(this).find('td:nth-child(7)').html();
+        contact_idDC = $(this).find('td:nth-child(7)').html();
+        console.log(contact_idDC);
+        });
+
         document.getElementById("remPopUp").style.display = "block";
     }
 function addContactToTable() {
@@ -610,7 +619,16 @@ function closeEdit() {
         document.getElementById("editPop").style.display = "none";
     }
 function opEdit() {
-        document.getElementById("editPop").style.display = "block";
+    $("#contacts tr").click(function(){
+    $(this).addClass('selected').siblings().removeClass('selected'); 
+    contact_id=$(this).find('td:nth-child(7)').html();
+    contact_idEC = $(this).find('td:nth-child(7)').html();
+    console.log(contact_idEC);
+    });
+    
+    document.getElementById("editPop").style.display = "block";
+
+
     }
 
 function doEditUser()
